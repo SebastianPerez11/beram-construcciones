@@ -1,0 +1,32 @@
+---
+import LogoBeram from "../assets/icon/LogoBeram.astro";
+---
+
+<header class="w-full flex justify-center fixed top-6 px-16 z-20">
+  <nav
+    class="w-full h-20 max-w-[1900px] flex justify-between items-center px-6 bg-white rounded-full"
+  >
+    <div class="flex items-center gap-12">
+      <LogoBeram />
+      <span class="w-[0.5px] h-10 bg-black"></span>
+      <ul class="flex gap-8">
+        <li><a class="font-semibold text-lg" href="/">Sobre Nosotros</a></li>
+        <li><a class="font-semibold text-lg" href="/">Servicios</a></li>
+        <li><a class="font-semibold text-lg" href="/">Nuestro Equipo</a></li>
+        <li><a class="font-semibold text-lg" href="/">Contacto</a></li>
+      </ul>
+    </div>
+
+    <ul class="flex items-center text-lg gap-7">
+      <li class="text-lg font-semibold">
+        <span class="font-bold">Llámenos:</span> +(011) 4029 7164
+      </li>
+
+      <a
+        href="/"
+        class="bg-[#2C3E50] w-[220px] py-2 px-7 text-white text-center font-bold text-lg rounded-3xl"
+        >Cotizar Ahora</a
+      >
+    </ul>
+  </nav>
+</header>
