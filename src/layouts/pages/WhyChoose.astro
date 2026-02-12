@@ -1,0 +1,107 @@
+---
+import IconShield from "../../assets/icon/IconShield.astro";
+import IconAttention from "../../assets/icon/IconAttention.astro";
+import PillSection from "../../components/PillSection.astro";
+import IconEnterprise from "../../assets/icon/IconEnterprise.astro";
+import Animado from "./Animado.astro";
+---
+
+<section class="w-[1224px] flex flex-col h-max justify-between py-36">
+  <Animado tipo="subir" delay={0} class="w-full">
+    <PillSection name="¿POR QUÉ ELEGIRNOS?" />
+  </Animado>
+
+  <div class="flex w-full gap-9">
+    <Animado tipo="izquierda" delay={100} class="w-full">
+      <div class="flex flex-col justify-end">
+        <span
+          class="h-[700px] w-[508px] rounded-4xl bg-[url(src/assets/img/WhyChooseImage.jpg)] bg-center bg-cover relative"
+        >
+          <div class="h-full w-full rounded-4xl absolute bg-[#000921]/40"></div>
+        </span>
+      </div>
+    </Animado>
+
+    <div class="w-full flex flex-col">
+      <Animado tipo="subir" delay={100}>
+        <h2 class="text-7xl font-bold mb-8">Que nos diferencia de los demás</h2>
+        <p class="font-extrabold text-xl mb-2 text-[#5D5D5D]">
+          Nos especializamos en brindar soluciones constructivas integrales,
+          combinando profesionalismo, eficiencia y compromiso.
+        </p>
+        <p class="font-bold text-lg mb-8 text-[#5D5D5D]">
+          Cada proyecto refleja nuestro enfoque personalizado, orientado al
+          detalle y al cumplimiento de plazos.
+        </p>
+      </Animado>
+
+      <ul class="w-full flex flex-col items-center justify-between grow">
+        <Animado tipo="subir" class="w-full flex" delay={200}>
+          <li class="w-full flex">
+            <span class="w-full h-px bg-[#5D5D5D] inline-block"></span>
+          </li>
+        </Animado>
+
+        <Animado tipo="subir" class="w-full" delay={300}>
+          <li class="w-full flex gap-8 font-bold items-center">
+            <span
+              class="bg-[#2C3E50] rounded-full size-14 shrink-0 flex justify-center items-center"
+              ><IconEnterprise />
+            </span>
+            <span class="text-lg w-24 font-extrabold"
+              >Empresa <br /> Responsable</span
+            >
+            <p class="text-lg font-bold text-[#5A6271]">
+              Cumplimos con todas las normativas vigentes y priorizamos la
+              seguridad, sostenibilidad y transparencia en cada obra.
+            </p>
+          </li>
+        </Animado>
+
+        <Animado tipo="subir" class="w-full flex" delay={400}>
+          <li class="w-full flex">
+            <span class="w-full h-px bg-[#5D5D5D] inline-block"></span>
+          </li>
+        </Animado>
+        <Animado tipo="subir" class="w-full" delay={500}>
+          <li class="w-full flex gap-8 font-bold items-center">
+            <span
+              class="bg-[#2C3E50] rounded-full size-14 shrink-0 flex justify-center items-center"
+            >
+              <IconShield /></span
+            >
+            <span class="text-lg w-24 font-extrabold"
+              >Calidad <br /> Garantizada</span
+            >
+            <p class="text-lg font-bold text-[#5A6271]">
+              Utilizamos materiales de primera línea y técnicas actualizadas
+              para asegurar resultados duraderos.
+            </p>
+          </li>
+        </Animado>
+        <Animado tipo="subir" class="w-full flex" delay={600}>
+          <li class="w-full flex">
+            <span class="w-full h-px bg-[#5D5D5D] inline-block"></span>
+          </li>
+        </Animado>
+
+        <Animado tipo="subir" class="w-full" delay={600}>
+          <li class="w-full flex gap-8 font-bold items-center">
+            <span
+              class="bg-[#2C3E50] rounded-full size-14 shrink-0 flex justify-center items-center"
+            >
+              <IconAttention />
+            </span>
+            <span class="text-lg font-extrabold w-24"
+              >Atención <br /> Personalizada</span
+            >
+            <p class="text-lg font-bold text-[#5A6271]">
+              Acompañamos a nuestros clientes en todo el proceso, desde el
+              diseño hasta la entrega final.
+            </p>
+          </li>
+        </Animado>
+      </ul>
+    </div>
+  </div>
+</section>

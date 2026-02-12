@@ -1,0 +1,69 @@
+---
+// src/components/Animado.astro
+interface Props {
+  tipo?: 'subir' | 'izquierda' | 'derecha' | 'zoom' | 'bajar';
+  class?: string;
+  delay?: number; // ← Nueva prop en milisegundos
+}
+
+const { tipo = 'subir', class: className, delay = 0 } = Astro.props;
+---
+
+<div 
+  class={`animar-elemento animacion-${tipo} ${className || ''}`} 
+  data-animar
+  style={`transition-delay: ${delay}ms;`}
+>
+  <slot />
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.5,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  const elementos = document.querySelectorAll('[data-animar]');
+  elementos.forEach(elemento => {
+    observer.observe(elemento);
+  });
+</script>
+
+<style>
+  .animar-elemento {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    /* El delay se agrega inline con style */
+  }
+  
+  .animacion-subir {
+    transform: translateY(50px);
+  }
+
+   .animacion-bajar {
+    transform: translateY(-50px);
+  }
+  
+  .animacion-izquierda {
+    transform: translateX(-50px);
+  }
+  
+  .animacion-derecha {
+    transform: translateX(50px);
+  }
+  
+  .animacion-zoom {
+    transform: scale(0.9);
+  }
+  
+  .animar-elemento.visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
+</style>

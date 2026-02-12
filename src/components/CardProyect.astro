@@ -1,0 +1,119 @@
+---
+import IconLocation from "../assets/icon/IconLocation.astro";
+import { proyects } from "../data/proyectsData";
+
+const allProyects = proyects;
+---
+
+<div class="stack-cards-wrapper flex flex-col gap-4">
+    {
+        allProyects.map(
+            (
+                {
+                    titleProyect,
+                    subtitle,
+                    description,
+                    location,
+                    status,
+                    bgColor,
+                },
+                index,
+            ) => (
+                <div class="stack-card-slot" data-card-slot={index}>
+                    <section
+                        class={`stack-card w-full h-[600px] rounded-4xl flex justify-end items-center ${bgColor}`}
+                        data-stack-index={index}
+                    >
+                        <div class="card-content bg-white py-2 px-12 w-[540px] h-[380px] mr-22 rounded-4xl flex flex-col justify-center shadow-2xl">
+                            <header class="mb-6">
+                                <h1 class="text-4xl font-extrabold mb-5">
+                                    {titleProyect}
+                                </h1>
+                                <p class="mb-2 text-lg font-bold">{subtitle}</p>
+                                <p class="mb-2 text-lg font-semibold text-[#5D5D5D] text-pretty">
+                                    {description}
+                                </p>
+                            </header>
+                            <footer class="flex justify-between items-center h-max">
+                                <span class="font-bold text-primary-blue text-lg flex w-full items-center gap-1">
+                                    <IconLocation /> {location}
+                                </span>
+                                <span class="font-extrabold text-sm bg-primary-blue text-white py-3 px-6 rounded-full">
+                                    {status}
+                                </span>
+                            </footer>
+                        </div>
+                    </section>
+                </div>
+            ),
+        )
+    }
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const slots = Array.from(
+            document.querySelectorAll("[data-card-slot]"),
+        ) as HTMLElement[];
+
+        slots.forEach((slot, index) => {
+            const card = slot.querySelector(".stack-card") as HTMLElement;
+            if (!card) return;
+
+            // Configuración sticky
+            card.style.position = "sticky";
+            card.style.top = `${100 + index * 40}px`;
+            card.style.zIndex = (slots.length - index).toString();
+            card.style.transition = "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+
+            // Estado inicial
+            const initialScale = 1 - index * 0.05;
+            card.style.transform = `scale(${initialScale})`;
+            card.style.opacity = "0.6";
+
+            // Observer
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            card.style.transform = "scale(1)";
+                            card.style.opacity = "1";
+                        } else {
+                            const initialScale = 1 - index * 0.05;
+                            card.style.transform = `scale(${initialScale})`;
+                            card.style.opacity = "0.6";
+                        }
+                    });
+                },
+                {
+                    threshold: 0.5,
+                    rootMargin: "-100px 0px",
+                },
+            );
+
+            observer.observe(slot);
+        });
+    });
+</script>
+
+<style>
+    .stack-cards-wrapper {
+        position: relative;
+        width: 100%;
+        height: max-content;
+    }
+
+    .stack-card-slot {
+        height: 100%;
+        position: relative;
+    }
+
+    .card-content {
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    .stack-card:hover .card-content {
+        transform: translateY(-10px);
+    }
+</style>

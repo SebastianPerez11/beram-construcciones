@@ -1,0 +1,127 @@
+---
+interface Props {
+  autoplaySpeed?: number; // en milisegundos
+}
+
+const { autoplaySpeed = 4000 } = Astro.props;
+---
+
+<div data-carousel-autoplay data-speed={autoplaySpeed}>
+  <slot />
+</div>
+
+<script>
+  interface CarouselData {
+    currentIndex: number;
+    autoplayInterval?: number;
+    container: HTMLElement;
+    prevBtn: HTMLButtonElement;
+    nextBtn: HTMLButtonElement;
+    totalCards: number;
+    cardWidth: number;
+    wrapper: Element;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-carousel-autoplay]').forEach((wrapper) => {
+      const speed = parseInt(wrapper.getAttribute('data-speed') || '4000');
+      
+      // Buscar los elementos dentro del wrapper
+      const container = wrapper.querySelector('[data-carousel-container]') as HTMLElement | null;
+      const prevBtn = wrapper.querySelector('[data-carousel-prev]') as HTMLButtonElement | null;
+      const nextBtn = wrapper.querySelector('[data-carousel-next]') as HTMLButtonElement | null;
+
+      if (!container || !prevBtn || !nextBtn) {
+        console.error('Faltan elementos del carrusel');
+        return;
+      }
+
+      const cards = Array.from(container.children) as HTMLElement[];
+      const totalCards = cards.length;
+      const cardWidth = 450 + 32;
+
+      const carouselData: CarouselData = {
+        currentIndex: 0,
+        container,
+        prevBtn,
+        nextBtn,
+        totalCards,
+        cardWidth,
+        wrapper
+      };
+
+      function updateCarousel(data: CarouselData) {
+        const offset = -(data.currentIndex * data.cardWidth);
+        data.container.style.transform = `translateX(${offset}px)`;
+      }
+
+      function nextSlide(data: CarouselData) {
+        data.currentIndex++;
+        if (data.currentIndex >= data.totalCards) {
+          data.currentIndex = 0;
+        }
+        updateCarousel(data);
+      }
+
+      function prevSlide(data: CarouselData) {
+        data.currentIndex--;
+        if (data.currentIndex < 0) {
+          data.currentIndex = data.totalCards - 1;
+        }
+        updateCarousel(data);
+      }
+
+      function startAutoplay(data: CarouselData, intervalSpeed: number) {
+        if (data.autoplayInterval !== undefined) return;
+        data.autoplayInterval = window.setInterval(() => nextSlide(data), intervalSpeed);
+      }
+
+      function stopAutoplay(data: CarouselData) {
+        if (data.autoplayInterval !== undefined) {
+          window.clearInterval(data.autoplayInterval);
+          data.autoplayInterval = undefined;
+        }
+      }
+
+      // Intersection Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAutoplay(carouselData, speed);
+          } else {
+            stopAutoplay(carouselData);
+          }
+        });
+      }, {
+        threshold: 0.3,
+        rootMargin: '0px'
+      });
+
+      observer.observe(wrapper);
+
+      // Event listeners
+      prevBtn.addEventListener('click', () => {
+        stopAutoplay(carouselData);
+        prevSlide(carouselData);
+        startAutoplay(carouselData, speed);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        stopAutoplay(carouselData);
+        nextSlide(carouselData);
+        startAutoplay(carouselData, speed);
+      });
+
+      // Pausar en hover
+      container.addEventListener('mouseenter', () => stopAutoplay(carouselData));
+      container.addEventListener('mouseleave', () => {
+        const rect = wrapper.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        if (isVisible) startAutoplay(carouselData, speed);
+      });
+
+      // Inicializar en posición 0
+      updateCarousel(carouselData);
+    });
+  });
+</script>

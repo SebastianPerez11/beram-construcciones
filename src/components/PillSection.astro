@@ -1,0 +1,44 @@
+---
+interface Props {
+    name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<div
+    class="pill-wrapper mb-8 font-black w-40 border-[0.8px] rounded-full py-2 px-2 text-xs bg-white overflow-hidden"
+>
+    <div class="slide-container">
+        <span class="slide-text">{name}</span>
+        <span class="slide-text">{name}</span>
+    </div>
+</div>
+
+<style>
+    .pill-wrapper {
+        position: relative;
+    }
+
+    .slide-container {
+        display: flex;
+        width: fit-content;
+        animation: slide 8s linear infinite;
+    }
+
+    .slide-text {
+        padding: 0 1rem;
+        white-space: nowrap;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(
+                -50%
+            ); /* Exactamente la mitad porque hay 2 copias */
+        }
+    }
+</style>

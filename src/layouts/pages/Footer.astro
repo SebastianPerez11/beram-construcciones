@@ -1,0 +1,115 @@
+---
+import LogoBeram from "../../assets/icon/LogoBeram.astro";
+import LogoBeramFull from "../../assets/icon/LogoBeramFull.astro";
+import Animado from "./Animado.astro";
+---
+
+<section
+    class="w-full flex justify-center h-max rounded-tr-4xl rounded-tl-4xl bg-blue-800 items-center px-18"
+>
+    <div class="w-full h-full py-20 flex flex-col items-center">
+        <Animado tipo="bajar" delay={0}>
+            <header class="mb-18">
+                <h2
+                    class="text-7xl font-bold leading-20 mb-6 text-center text-white"
+                >
+                    Solidez, diseño y calidad <br /> en cada obra
+                </h2>
+                <p class="text-center font-bold italic text-xl text-white">
+                    Ofrecemos soluciones integrales para proyectos residenciales
+                    y comerciales, <br /> combinando tecnología, eficiencia y una
+                    atención personalizada.
+                </p>
+            </header>
+        </Animado>
+        <Animado class="w-full" tipo="subir" delay={150}>
+            <footer
+                class="bg-white w-full h-max py-12 rounded-4xl px-20 grid grid-cols-12 gap-8 max-w-[1700px]"
+            >
+                <div class="col-span-4 flex justify-between gap-8">
+                    <div class="text-[17px]">
+                        <LogoBeramFull />
+                        <p class="mt-5 font-bold mb-6 text-black]">
+                            Nos especializamos en soluciones integrales de
+                            construcción, ofreciendo proyectos personalizados,
+                            eficientes y de alta calidad, adaptados a cada
+                            cliente.
+                        </p>
+                        <time datetime="" class="font-semibold">
+                            <span class="font-bold">Horario de atención:</span> Lun
+                            a Vie de 9:00 a 18:00 hs</time
+                        >
+                    </div>
+
+                    <span class="w-[0.5px] h-full bg-black inline-block"></span>
+                </div>
+
+                <div class="col-span-4 flex justify-between gap-8 w-full">
+                    <div class="flex justify-center gap-12 w-full">
+                        <ul class="text-[17px]">
+                            <li
+                                class="text-primary-blue font-bold text-xl mb-2"
+                            >
+                                Secciones
+                            </li>
+                            <li class="mb-2">Inicio</li>
+                            <li class="mb-2">Servicios</li>
+                            <li class="mb-2">Proyectos</li>
+                            <li class="mb-2">Nosotros</li>
+                            <li class="mb-2">Contacto</li>
+                        </ul>
+                        <ul class="text-[17px]">
+                            <li
+                                class="text-primary-blue font-bold text-xl mb-2"
+                            >
+                                Recursos
+                            </li>
+                            <li class="mb-2">Preguntas Frecuentes</li>
+                            <li class="mb-2">Blogs</li>
+                            <li class="mb-2">Novedades</li>
+                            <li class="mb-2">Trabaja con Nosotros</li>
+                        </ul>
+                    </div>
+
+                    <span class="w-[0.5px] h-full bg-black inline-block"></span>
+                </div>
+
+                <div class="col-span-4">
+                    <ul class="text-[17px]">
+                        <li class="text-primary-blue font-bold text-xl mb-2">
+                            Contacto
+                        </li>
+                        <li class="mb-2">
+                            <span class="font-bold"
+                                >Email:
+                            </span>beramconstrucciones@gmail.com
+                        </li>
+                        <li class="mb-2">
+                            <span class="font-bold">Telefono: </span>+(011) 4029
+                            7164
+                        </li>
+                        <li class="mb-2">
+                            <span class="font-bold">Dirección: </span>Ciudad
+                            Autonoma de Buenos Aires
+                        </li>
+                    </ul>
+                </div>
+
+                <span
+                    class="w-full h-px bg-[#5D5D5D] inline-block col-span-full"
+                ></span>
+
+                <div class="flex justify-between w-full col-span-full">
+                    <p class="font-semibold text-[#5D5D5D]">
+                        <span class="text-primary-blue font-extrabold"
+                            >© 2025 Beram Construcciones</span
+                        > - Todos los derechos reservados.
+                    </p>
+                    <p class="font-bold text-lg text-[#5D5D5D]">
+                        Desarrollador por Sebas Dev
+                    </p>
+                </div>
+            </footer>
+        </Animado>
+    </div>
+</section>

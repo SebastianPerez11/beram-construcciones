@@ -1,0 +1,172 @@
+---
+import IconArrowL from "../../assets/icon/IconArrowL.astro";
+import IconArrowR from "../../assets/icon/IconArrowR.astro";
+import CardService from "../../components/CardService.astro";
+import PillSection from "../../components/PillSection.astro";
+import Animado from "./Animado.astro";
+---
+
+<section
+  id="services-section"
+  class="w-full rounded-4xl relative bg-[url(src/assets/img/ServiceImage.jpg)] bg-center bg-cover min-h-[1000px] h-max overflow-hidden"
+>
+  <div
+    class="h-full w-full rounded-4xl absolute flex justify-center bg-[#000921]/40"
+  >
+    <div class="flex h-full flex-col w-[1224px] relative">
+      <div
+        class="h-full flex flex-col gap-8 absolute items-center justify-center w-[1920px] overflow-hidden"
+      >
+        <header class="w-full mb-10">
+          <Animado tipo="subir" delay={0}>
+            <PillSection name="QUE OFRECEMOS" />
+          </Animado>
+
+          <Animado tipo="subir" delay={100}>
+            <h1 class="text-7xl font-bold text-white mb-6">
+              Soluciones Constructivas a Medida
+            </h1>
+          </Animado>
+
+          <div class="flex w-[80%] justify-between items-center">
+            <Animado tipo="subir" delay={200}>
+              <h2 class="text-white text-xl font-bold">
+                Cada servicio es ejecutado por profesionales especializados,
+                garantizando calidad, seguridad y cumplimiento de plazos.
+              </h2>
+            </Animado>
+
+            <Animado tipo="zoom" delay={300}>
+              <div class="flex gap-4">
+                <button
+                  id="prevBtn"
+                  class="size-12 bg-white rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-100 transition-colors"
+                >
+                  <IconArrowL />
+                </button>
+                <button
+                  id="nextBtn"
+                  class="size-12 bg-white rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-100 transition-colors"
+                >
+                  <IconArrowR />
+                </button>
+              </div>
+            </Animado>
+          </div>
+        </header>
+
+        <footer class="flex gap-8 w-full overflow-hidden">
+          <div
+            id="carousel-container"
+            class="flex gap-8 transition-transform duration-500 ease-in-out"
+          >
+            <CardService />
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Esperar a que el DOM esté listo
+  document.addEventListener("DOMContentLoaded", () => {
+    let currentIndex = 0;
+    let autoplayInterval: number | undefined;
+
+    const section = document.getElementById(
+      "services-section",
+    ) as HTMLElement | null;
+    const container = document.getElementById(
+      "carousel-container",
+    ) as HTMLElement | null;
+    const prevBtn = document.getElementById(
+      "prevBtn",
+    ) as HTMLButtonElement | null;
+    const nextBtn = document.getElementById(
+      "nextBtn",
+    ) as HTMLButtonElement | null;
+
+    if (!section || !container || !prevBtn || !nextBtn) return;
+
+    const cards = Array.from(container.children) as HTMLElement[];
+    const totalCards = cards.length;
+    const cardWidth = 450 + 32;
+
+    function updateCarousel() {
+      if (!container) return;
+      const offset = -(currentIndex * cardWidth);
+      container.style.transform = `translateX(${offset}px)`;
+    }
+
+    function nextSlide() {
+      currentIndex++;
+      if (currentIndex >= totalCards) {
+        currentIndex = 0;
+      }
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = totalCards - 1;
+      }
+      updateCarousel();
+    }
+
+    function startAutoplay() {
+      if (autoplayInterval !== undefined) return;
+      autoplayInterval = window.setInterval(nextSlide, 3000);
+    }
+
+    function stopAutoplay() {
+      if (autoplayInterval !== undefined) {
+        window.clearInterval(autoplayInterval);
+        autoplayInterval = undefined;
+      }
+    }
+
+    // Intersection Observer - inicia/detiene según visibilidad
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startAutoplay();
+          } else {
+            stopAutoplay();
+          }
+        });
+      },
+      {
+        threshold: 0.7,
+        rootMargin: "0px",
+      },
+    );
+
+    observer.observe(section);
+
+    // Event listeners para los botones
+    prevBtn.addEventListener("click", () => {
+      stopAutoplay();
+      prevSlide();
+      startAutoplay();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      stopAutoplay();
+      nextSlide();
+      startAutoplay();
+    });
+
+    // Pausar en hover
+    container.addEventListener("mouseenter", stopAutoplay);
+    container.addEventListener("mouseleave", () => {
+      const rect = section.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (isVisible) startAutoplay();
+    });
+
+    updateCarousel();
+  });
+</script>

@@ -1,0 +1,125 @@
+---
+import IconMail from "../../assets/icon/IconMail.astro";
+import IconPhone from "../../assets/icon/IconPhone.astro";
+import ButtonPrimary from "../../components/ButtonPrimary.astro";
+import PillSection from "../../components/PillSection.astro";
+import Animado from "./Animado.astro";
+---
+
+<section class="w-[1224px] flex-col h-max items-center py-36">
+    <div class="flex justify-between w-full mb-17.5">
+        <div class="w-full flex flex-col justify-start">
+            <Animado tipo="subir" delay={0}>
+                <PillSection name="CONSULTA RAPIDA" />
+            </Animado>
+
+            <Animado tipo="subir" delay={100}>
+                <h2 class="text-7xl font-bold leading-20 mb-6">
+                    Solicita tu Presupuesto sin Compromiso
+                </h2>
+
+                <h3 class="text-xl font-extrabold mb-7 text-primary-blue">
+                    Estamos para ayudarte.
+                </h3>
+                <p class="text-lg font-bold text-[#5D5D5D] text-pretty">
+                    Si tenés dudas o querés más información, podes comunicarte
+                    con nosotros mediante:
+                </p>
+            </Animado>
+            <Animado tipo="zoom" class="flex grow" delay={250}>
+                <div class="flex flex-col justify-end grow gap-6">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="bg-[#2C3E50] rounded-full size-12 shrink-0 flex justify-center items-center"
+                        >
+                            <IconPhone />
+                        </span>
+                        <span class="text-xl font-bold">+(011) 4029 7164</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="bg-[#2C3E50] rounded-full size-12 shrink-0 flex justify-center items-center"
+                        >
+                            <IconMail />
+                        </span>
+                        <span class="text-xl font-bold"
+                            >beramconstrucciones@gmail.com</span
+                        >
+                    </div>
+                </div>
+            </Animado>
+        </div>
+        <div class="w-full flex flex-col">
+            <Animado tipo="derecha" class="" delay={350}>
+                <h3 class="font-bold text-xl mb-4">
+                    Con años de experiencia en el rubro, ofrecemos un servicio
+                    personalizado, rápido y sin complicaciones.
+                </h3>
+
+                <p
+                    class="text-xl font-extrabold mb-11 text-primary-blue italic"
+                >
+                    ¡Queremos ayudarte a concretar tu proyecto con resultados
+                    que superen tus expectativas!
+                </p>
+            </Animado>
+            <Animado tipo="derecha" delay={450}>
+                <form class="grid grid-cols-2 gap-6.5 mb-11" action="">
+                    <input
+                        class="bg-[#efeeee] py-1 px-8 rounded-full h-12.5 w-full text-lg text-[#807f7f] placeholder-[#807f7f] font-medium"
+                        type="text"
+                        placeholder="Tú Nombre*"
+                    />
+                    <input
+                        class="bg-[#efeeee] py-1 px-8 rounded-full h-12. w-full text-lg text-[#807f7f] placeholder-[#807f7f] font-medium"
+                        type="email"
+                        placeholder="Email*"
+                        name=""
+                        id=""
+                    />
+                    <input
+                        class="bg-[#efeeee] py-1 px-8 rounded-full h-12.5 w-full text-lg text-[#807f7f] placeholder-[#807f7f]"
+                        type="number"
+                        placeholder="Numero de Teléfono*"
+                        name=""
+                        id=""
+                    />
+                    <select
+                        class="bg-[#efeeee] py-1 px-8 appearance-none rounded-full h-12.5 w-full text-[#807f7f] text-lg font-medium"
+                        name="Servicio"
+                        id=""
+                    >
+                        <option class="" value="Obras" disabled selected
+                            >Tipo de Servicio*</option
+                        >
+                        <option value="Obras">Obras</option>
+                        <option value="Obras">Reparaciones</option>
+                    </select>
+                    <textarea
+                        placeholder="Mensaje Corto*"
+                        class="h-42 bg-[#efeeee] py-3 px-8 rounded-3xl w-full col-span-2 text-lg text-[#807f7f] placeholder-[#807f7f] font-medium"
+                        name=""
+                        id=""></textarea>
+                </form>
+            </Animado>
+              <Animado tipo="derecha" delay={550}>
+            <footer class="flex justify-between">
+                <ButtonPrimary text="Enviar Consulta" />
+                <p class="text-right">
+                    <span class="font-extrabold text-lg text-primary-blue"
+                        >Campos obligatorios marcados con *</span
+                    >
+                    <br />
+                    <span class="italic font-semibold text-lg text-[#5D5D5D]"
+                        >Tu consulta no genera molestia.</span
+                    >
+                </p>
+            </footer>
+            </Animado>
+        </div>
+    </div>
+    <Animado class="w-full" tipo="subir" delay={200}>
+           <div class="w-full h-[480px] bg-blue-200 rounded-4xl"></div>
+    </Animado>
+ 
+</section>

@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+/* Clase personalizada */
+.font-lato {
+  font-family: 'Lato', sans-serif;
+}
+
+.bg-primary-blue {
+  background: #2C3E50;
+}
+
+.text-primary-blue {
+  color: #2C3E50;
+}
+
 /* ------------------------------
    Fuente local Lato (completa)
    Carpeta: /fonts/Lato/
@@ -147,17 +160,4 @@
   font-weight: 900;
   font-style: italic;
   font-display: swap;
-}
-
-/* Clase personalizada */
-.font-lato {
-  font-family: 'Lato', sans-serif;
-}
-
-.bg-primary-blue{
- background: #2C3E50;
-}
-
-.text-primary-blue{
- color: #2C3E50;
 }

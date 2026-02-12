@@ -1,0 +1,47 @@
+---
+import { services } from "../data/servicesData";
+import Animado from "../layouts/pages/Animado.astro";
+
+const service = services;
+---
+
+{
+  service.map(({ description, service, features, measure }) => (
+    <Animado tipo="izquierda" delay={180}>
+    <div class="flex w-[450px] flex-col bg-white py-7 px-6 rounded-2xl shrink-0">
+      <header>
+        <span class="size-12 bg-primary-blue rounded-xl block mb-6" />
+        <h2 class="font-bold text-2xl mb-6">{service}</h2>
+        <p class="text-lg font-bold text-[#5D5D5D] mb-6">{description}</p>
+
+        <ul class="mb-6 text-lg ml-5 list-disc">
+          {features.map((feature) => (
+            <li> {feature} </li>
+          ))}
+        </ul>
+      </header>
+
+      <footer class="w-full">
+        <div class="mb-10 text-sm font-bold flex justify-between items-center bg-[#E1E0FF] px-3 py-2">
+          <span class="text-xs">DESDE</span>
+          <span>{measure}</span>
+        </div>
+        <div class="w-full flex flex-col gap-2">
+          <a
+            class="bg-primary-blue border-blue-950 py-2 w-full text-center text-white font-black"
+            href=""
+          >
+            Solicitar Presupuesto
+          </a>
+          <a
+            class="border-blue-950 border-2 py-2 w-full text-center text-blue-primary font-black"
+            href=""
+          >
+            Ver proyectos similares
+          </a>
+        </div>
+      </footer>
+    </div>
+    </Animado>
+  ))
+}
