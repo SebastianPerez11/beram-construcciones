@@ -2,10 +2,12 @@
 import IconPlay from "../../../public/assets/icon/IconPlay.astro";
 import ButtonPrimary from "../../components/ButtonPrimary.astro";
 import Animado from "./Animado.astro";
+import PillSection from "../../components/PillSection.astro";
 ---
 
 <section
-  class="w-full max-w-[1920px] flex justify-between max-h-max h-screen px-3 gap-3"
+  id="home"
+  class="w-full max-w-480 flex justify-between max-h-max h-screen px-3 gap-3"
 >
   <div
     class="bg-[#F6F3EC] w-full h-full rounded-4xl flex flex-col justify-end px-16 py-"
@@ -18,16 +20,28 @@ import Animado from "./Animado.astro";
           Confianza
         </h1>
       </Animado>
-     <Animado tipo="subir" delay={300}>
-      <h2 class="text-xl font-extrabold mb-6">
-        Más de 20 años construyendo obras que inspiran confianza <br /> y perduran
-        en el tiempo.
-      </h2>
+          <PillSection name="PRESUPUESTO SIN CARGO EN 24HS" />
+      <Animado tipo="subir" delay={300}>
+        <h2 class="text-[20.5px] font-bold mb-6">
+          Construcción y refacciones en todo <span
+            class="font-extrabold text-primary-blue"
+            >Buenos Aires
+          </span>- Desde <span class="font-extrabold text-primary-blue"
+            >Obras Completas
+          </span><br /> hasta <span class="font-extrabold text-primary-blue">
+            Reparaciones en tu Hogar</span
+          >
+        </h2>
 
-      <p class="text-lg font-bold mb-14">
-        Comprometidos con la calidad, la seguridad y el cumplimiento de plazos.
-      </p>
-      <ButtonPrimary text="Conocé nuestros proyectos " />
+        <p class="text-[19px] font-bold mb-14">
+          Trabajamos con <span class="font-extrabold text-primary-blue"
+            >Arquitectos y Propietarios directos</span
+          > en todo tipo de proyectos.
+        </p>
+        <ButtonPrimary
+          href="#obras-realizadas"
+          text="Consultar sin Cargo "
+        />
       </Animado>
     </header>
     <Animado tipo="derecha" delay={400}>
@@ -38,7 +52,7 @@ import Animado from "./Animado.astro";
           Años de <br /> experiencia
         </p>
         <div
-          class="w-[180px] h-24 flex justify-center items-center rounded-lg bg-[#2C3E50]"
+          class="w-45 h-24 flex justify-center items-center rounded-lg bg-[#2C3E50]"
         >
           <IconPlay />
         </div>

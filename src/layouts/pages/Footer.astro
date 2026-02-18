@@ -4,9 +4,11 @@ import Animado from "./Animado.astro";
 ---
 
 <section
-    class="w-full flex justify-center h-max rounded-tr-4xl rounded-tl-4xl bg-blue-800 items-center px-18"
+    class="w-full flex justify-center h-max rounded-tr-4xl rounded-tl-4xl  bg-[url(../assets/img/FooterImage.jpg)] relative bg-cover bg-center items-center px-18"
 >
-    <div class="w-full h-full py-20 flex flex-col items-center">
+ <!-- Overlay oscuro -->
+    <div class="absolute inset-0 bg-black/40 rounded-tr-4xl rounded-tl-4xl"></div>
+    <div class="w-full h-full py-20 flex flex-col justify-center items-center">
         <Animado tipo="bajar" delay={0}>
             <header class="mb-18">
                 <h2
@@ -21,11 +23,11 @@ import Animado from "./Animado.astro";
                 </p>
             </header>
         </Animado>
-        <Animado class="w-full" tipo="subir" delay={150}>
+        <Animado class="w-full flex justify-center" tipo="subir" delay={150}>
             <footer
-                class="bg-white w-full h-max py-12 rounded-4xl px-20 grid grid-cols-12 gap-8 max-w-[1700px]"
+                class="bg-white w-full h-max py-18 rounded-4xl px-20 grid grid-cols-12 gap-10 max-w-425 relative"
             >
-                <div class="col-span-4 flex justify-between gap-8">
+                <div class="col-span-4 flex justify-between gap-8 ">
                     <div class="text-[17px]">
                         <LogoBeramFull />
                         <p class="mt-5 font-bold mb-6 text-black]">

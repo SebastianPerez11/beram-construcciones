@@ -7,15 +7,15 @@ import Animado from "./Animado.astro";
 ---
 
 <section
-  id="services-section"
-  class="w-full rounded-4xl relative bg-[url(../assets/img/ServiceImage.jpg)] bg-center bg-cover min-h-[1000px] h-max overflow-hidden"
+  id="servicios"
+  class="w-full rounded-4xl relative bg-[url(../assets/img/ServiceImage.jpg)] bg-center bg-cover min-h-250 h-max"
 >
   <div
     class="h-full w-full rounded-4xl absolute flex justify-center bg-[#000921]/40"
   >
-    <div class="flex h-full flex-col w-[1224px] relative">
+    <div class="flex h-full flex-col w-306 relative">
       <div
-        class="h-full flex flex-col gap-8 absolute items-center justify-center w-[1920px] overflow-hidden"
+        class="h-full flex flex-col gap-8 absolute items-center justify-center w-480 overflow-hidden"
       >
         <header class="w-full mb-10">
           <Animado tipo="subir" delay={0}>
@@ -75,7 +75,7 @@ import Animado from "./Animado.astro";
     let autoplayInterval: number | undefined;
 
     const section = document.getElementById(
-      "services-section",
+      "servicios",
     ) as HTMLElement | null;
     const container = document.getElementById(
       "carousel-container",

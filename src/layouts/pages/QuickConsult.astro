@@ -1,12 +1,12 @@
 ---
 import IconMail from "../../../public/assets/icon/IconMail.astro";
 import IconPhone from "../../../public/assets/icon/IconPhone.astro";
-import ButtonPrimary from "../../components/ButtonPrimary.astro";
 import PillSection from "../../components/PillSection.astro";
 import Animado from "./Animado.astro";
+import IconArrowRightFilled from "../../../public/assets/icon/IconArrowRightFilled.astro";
 ---
 
-<section class="w-[1224px] flex-col h-max items-center py-36">
+<section id="contacto" class="w-306 flex-col h-max items-center py-36">
     <div class="flex justify-between w-full mb-17.5">
         <div class="w-full flex flex-col justify-start">
             <Animado tipo="subir" delay={0}>
@@ -64,62 +64,254 @@ import Animado from "./Animado.astro";
                 </p>
             </Animado>
             <Animado tipo="derecha" delay={450}>
-                <form class="grid grid-cols-2 gap-6.5 mb-11" action="">
+                <form id="contactForm" class="grid grid-cols-2 gap-6.5 mb-11">
                     <input
+                        id="nombre"
+                        name="nombre"
                         class="bg-[#efeeee] py-1 px-8 rounded-full h-12.5 w-full text-lg text-[#807f7f] placeholder-[#807f7f] font-medium"
                         type="text"
                         placeholder="Tú Nombre*"
+                        required
                     />
                     <input
-                        class="bg-[#efeeee] py-1 px-8 rounded-full h-12. w-full text-lg text-[#807f7f] placeholder-[#807f7f] font-medium"
+                        id="email"
+                        name="email"
+                        class="bg-[#efeeee] py-1 px-8 rounded-full h-12.5 w-full text-lg text-[#807f7f] placeholder-[#807f7f] font-medium"
                         type="email"
                         placeholder="Email*"
-                        name=""
-                        id=""
+                        required
                     />
                     <input
+                        id="telefono"
+                        name="telefono"
                         class="bg-[#efeeee] py-1 px-8 rounded-full h-12.5 w-full text-lg text-[#807f7f] placeholder-[#807f7f]"
-                        type="number"
+                        type="tel"
                         placeholder="Numero de Teléfono*"
-                        name=""
-                        id=""
+                        required
                     />
                     <select
+                        id="servicio"
+                        name="servicio"
                         class="bg-[#efeeee] py-1 px-8 appearance-none rounded-full h-12.5 w-full text-[#807f7f] text-lg font-medium"
-                        name="Servicio"
-                        id=""
+                        required
                     >
-                        <option class="" value="Obras" disabled selected
+                        <option value="" disabled selected
                             >Tipo de Servicio*</option
                         >
                         <option value="Obras">Obras</option>
-                        <option value="Obras">Reparaciones</option>
+                        <option value="Reparaciones">Reparaciones</option>
                     </select>
                     <textarea
+                        id="mensaje"
+                        name="mensaje"
                         placeholder="Mensaje Corto*"
-                        class="h-42 bg-[#efeeee] py-3 px-8 rounded-3xl w-full col-span-2 text-lg text-[#807f7f] placeholder-[#807f7f] font-medium"
-                        name=""
-                        id=""></textarea>
+                        class="resize-none h-42 bg-[#efeeee] py-3 px-8 rounded-3xl w-full col-span-2 text-lg text-[#807f7f] placeholder-[#807f7f] font-medium"
+                        required></textarea>
                 </form>
             </Animado>
-              <Animado tipo="derecha" delay={550}>
-            <footer class="flex justify-between">
-                <ButtonPrimary text="Enviar Consulta" />
-                <p class="text-right">
-                    <span class="font-extrabold text-lg text-primary-blue"
-                        >Campos obligatorios marcados con *</span
+            <Animado tipo="derecha" delay={550}>
+                <footer class="flex justify-between">
+                    <button
+                        data-btn-enviar
+                        type="button"
+                        class="flex text-center w-max p-1 pl-4 outline-[0.8px] rounded-full text-lg font-bold items-center gap-3 bg-white cursor-pointer hover:bg-gray-50 transition-colors"
                     >
-                    <br />
-                    <span class="italic font-semibold text-lg text-[#5D5D5D]"
-                        >Tu consulta no genera molestia.</span
-                    >
-                </p>
-            </footer>
+                        Enviar Consulta
+                        <span
+                            class="bg-[#2C3E50] flex justify-center items-center size-11 rounded-full"
+                        >
+                            <IconArrowRightFilled />
+                        </span>
+                    </button>
+                    <p class="text-right">
+                        <span class="font-extrabold text-lg text-primary-blue"
+                            >Campos obligatorios marcados con *</span
+                        >
+                        <br />
+                        <span
+                            class="italic font-semibold text-lg text-[#5D5D5D]"
+                            >Tu consulta no genera molestia.</span
+                        >
+                    </p>
+                </footer>
             </Animado>
         </div>
     </div>
-    <Animado class="w-full" tipo="subir" delay={200}>
-           <div class="w-full h-[480px] bg-blue-200 rounded-4xl"></div>
+    <Animado class="w-full h-full rounded-4xl" tipo="subir" delay={0}>
+        <div
+            class="rounded-4xl w-full h-130 bg-[url(../assets/img/ContactSection.jpg)] bg-center bg-cover relative"
+        >
+            <div class="h-full w-full rounded-4xl absolute bg-[#000921]/40">
+            </div>
+        </div>
     </Animado>
- 
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contactForm") as HTMLFormElement;
+        const btnEnviar = document.querySelector(
+            "[data-btn-enviar]",
+        ) as HTMLButtonElement;
+
+        // Crear función para mostrar notificación
+        function mostrarNotificacion(
+            tipo: "success" | "error",
+            mensaje: string,
+            numeroConsulta?: string,
+        ) {
+            // Remover notificación anterior si existe
+            const notifAnterior = document.getElementById(
+                "notificacion-contacto",
+            );
+            if (notifAnterior) {
+                notifAnterior.remove();
+            }
+
+            const notificacion = document.createElement("div");
+            notificacion.id = "notificacion-contacto";
+            notificacion.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${tipo === "success" ? "#2C3E50" : "#e74c3c"};
+        color: white;
+        padding: 20px 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        z-index: 10000;
+        min-width: 320px;
+        max-width: 600px;
+        animation: slideIn 0.3s ease-out;
+        font-family: system-ui, -apple-system, sans-serif;
+      `;
+
+            const icono = tipo === "success" ? "✅" : "❌";
+
+            notificacion.innerHTML = `
+        <style>
+          @keyframes slideIn {
+            from {
+              transform: translateX(400px);
+              opacity: 0;
+            }
+            to {
+              transform: translateX(0);
+              opacity: 1;
+            }
+          }
+          @keyframes slideOut {
+            from {
+              transform: translateX(0);
+              opacity: 1;
+            }
+            to {
+              transform: translateX(400px);
+              opacity: 0;
+            }
+          }
+        </style>
+        <div style="display: flex; align-items: start; gap: 15px;">
+          <span style="font-size: 24px;">${icono}</span>
+          <div style="flex: 1;">
+            <p style="margin: 0 0 5px 0; font-weight: bold; font-size: 16px;">
+              ${tipo === "success" ? "¡Consulta Enviada!" : "Error al Enviar"}
+            </p>
+            <p style="margin: 0; font-size: 14px; opacity: 0.9; line-height: 1.4;">
+              ${mensaje}
+            </p>
+            ${
+                numeroConsulta
+                    ? `
+              <div style="margin-top: 10px; padding: 8px 12px; background: rgba(255,255,255,0.15); border-radius: 6px;">
+                <p style="margin: 0; font-size: 11px; text-transform: uppercase; opacity: 0.8; letter-spacing: 0.5px;">
+                  Nº de Consulta
+                </p>
+                <p style="margin: 3px 0 0 0; font-size: 13px; font-weight: bold; letter-spacing: 1px;">
+                  ${numeroConsulta}
+                </p>
+              </div>
+            `
+                    : ""
+            }
+          </div>
+          <button 
+            onclick="this.parentElement.parentElement.style.animation='slideOut 0.3s ease-out'; setTimeout(() => this.parentElement.parentElement.remove(), 300)"
+            style="background: none; border: none; color: white; font-size: 20px; cursor: pointer; padding: 0; opacity: 0.7; line-height: 1;"
+          >×</button>
+        </div>
+      `;
+
+            document.body.appendChild(notificacion);
+
+            // Auto-cerrar después de 6 segundos
+            setTimeout(() => {
+                if (document.getElementById("notificacion-contacto")) {
+                    notificacion.style.animation = "slideOut 0.3s ease-out";
+                    setTimeout(() => notificacion.remove(), 300);
+                }
+            }, 6000);
+        }
+
+        if (form && btnEnviar) {
+            btnEnviar.addEventListener("click", async (e) => {
+                e.preventDefault();
+
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                btnEnviar.disabled = true;
+                const textoOriginal =
+                    btnEnviar.textContent || "Enviar Consulta";
+                btnEnviar.textContent = "Enviando...";
+
+                const formData = new FormData(form);
+                const data = {
+                    nombre: formData.get("nombre") as string,
+                    email: formData.get("email") as string,
+                    telefono: formData.get("telefono") as string,
+                    servicio: formData.get("servicio") as string,
+                    mensaje: formData.get("mensaje") as string,
+                };
+
+                try {
+                    const response = await fetch("/api/contact", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        mostrarNotificacion(
+                            "success",
+                            "Tu consulta ha sido recibida. Te responderemos a la brevedad.",
+                            result.numeroConsulta,
+                        );
+                        form.reset();
+                    } else {
+                        mostrarNotificacion(
+                            "error",
+                            result.error ||
+                                "No se pudo enviar la consulta. Por favor intenta nuevamente.",
+                        );
+                    }
+                } catch (error) {
+                    mostrarNotificacion(
+                        "error",
+                        "Error de conexión. Por favor verifica tu internet e intenta nuevamente.",
+                    );
+                    console.error("Error:", error);
+                } finally {
+                    btnEnviar.disabled = false;
+                    btnEnviar.textContent = textoOriginal;
+                }
+            });
+        }
+    });
+</script>
