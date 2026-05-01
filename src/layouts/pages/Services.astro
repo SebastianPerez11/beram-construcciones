@@ -11,13 +11,13 @@ import Animado from "./Animado.astro";
   class="w-full rounded-4xl relative bg-[url(../assets/img/ServiceImage.jpg)] bg-center bg-cover min-h-250 h-max"
 >
   <div
-    class="h-full w-full rounded-4xl absolute flex justify-center bg-[#000921]/40"
+    class="h-full w-full rounded-4xl absolute flex justify-center bg-[#000921]/40 items-center"
   >
-    <div class="flex h-full flex-col w-306 relative">
+    <div class="w-306 h-202.5 relative">
       <div
-        class="h-full flex flex-col gap-8 absolute items-center justify-center w-480 overflow-hidden"
+        class="flex flex-col gap-8 absolute items-center justify-center w-480 overflow-hidden"
       >
-        <header class="w-full mb-10">
+        <header class="w-full mb-2">
           <Animado tipo="subir" delay={0}>
             <PillSection name="QUE OFRECEMOS" />
           </Animado>
@@ -74,9 +74,7 @@ import Animado from "./Animado.astro";
     let currentIndex = 0;
     let autoplayInterval: number | undefined;
 
-    const section = document.getElementById(
-      "servicios",
-    ) as HTMLElement | null;
+    const section = document.getElementById("servicios") as HTMLElement | null;
     const container = document.getElementById(
       "carousel-container",
     ) as HTMLElement | null;
@@ -91,7 +89,7 @@ import Animado from "./Animado.astro";
 
     const cards = Array.from(container.children) as HTMLElement[];
     const totalCards = cards.length;
-    const cardWidth = 450 + 32;
+    const cardWidth = 440 + 32;
 
     function updateCarousel() {
       if (!container) return;

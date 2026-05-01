@@ -15,16 +15,20 @@ const allProyects = proyects;
                     description,
                     location,
                     status,
-                    bgColor,
+                    bgImage,
                 },
                 index,
             ) => (
                 <div class="stack-card-slot" data-card-slot={index}>
                     <section
-                        class={`stack-card w-full h-[600px] rounded-4xl flex justify-end items-center ${bgColor}`}
+                        class={`stack-card relative w-full h-150 rounded-4xl flex justify-end items-center ${bgImage} bg-cover bg-center`}
                         data-stack-index={index}
                     >
-                        <div class="card-content bg-white py-2 px-12 w-[540px] h-[380px] mr-22 rounded-4xl flex flex-col justify-center shadow-2xl">
+                        {/* Overlay solo sobre el fondo */}
+                        <div class="absolute inset-0 rounded-4xl bg-black/25 pointer-events-none" />
+
+                        {/* Card por encima del overlay */}
+                        <div class="card-content relative z-10 bg-white py-2 px-12 w-135 h-95 mr-22 rounded-4xl flex flex-col justify-center shadow-2xl">
                             <header class="mb-6">
                                 <h1 class="text-4xl font-extrabold mb-5">
                                     {titleProyect}

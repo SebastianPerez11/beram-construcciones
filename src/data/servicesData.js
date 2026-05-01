@@ -1,46 +1,38 @@
 export const services = [
     {
-        service: "Yesería",
-        description: "Trabajos de yeso, masillado, alisado de paredes y cielorrasos para terminaciones perfectas.",
-        features: ["Pintura interior y exterior", "Tratamiento de humedad", "Aplicación de texturas especiales", "Garantía de 2 años"],
+        service: "Construcción de Viviendas",
+        description: "Nos encargamos de todo el proceso, desde la planificación hasta la entrega final.",
+        features: ["Proyectos llave en mano", "Dirección y ejecución", "Dirección y ejecución"],
         measure: "320/m²",
 
     },
     {
-        service: "Pintura Profesional",
-        description: "Trabajos de yeso, masillado, alisado de paredes y cielorrasos para terminaciones perfectas.",
-        features: ["Pintura interior y exterior", "Tratamiento de humedad", "Aplicación de texturas especiales", "Garantía de 1 años"],
+        service: "Ampliaciones",
+        description: "Integramos nuevas áreas respetando la estructura existente.",
+        features: ["Nuevos ambientes", "Plantas superiores", "Quinchos y galerías",],
         measure: "320/m²",
 
     },
     {
-        service: "Construcción en Seco (Durlock)",
-        description: "Trabajos de yeso, masillado, alisado de paredes y cielorrasos para terminaciones perfectas.",
-        features: ["Pintura interior y exterior", "Tratamiento de humedad", "Aplicación de texturas especiales", "Garantía de 2 años"],
+        service: "Remodelaciones",
+        description: "Renovamos ambientes para hacerlos más funcionales y estéticos.",
+        features: ["Cocinas y baños", "Renovaciones integrales", "Interiores y exteriores",],
         measure: "320/m²",
 
     },
     {
-        service: "Colocación",
-        description: "Trabajos de yeso, masillado, alisado de paredes y cielorrasos para terminaciones perfectas.",
-        features: ["Pintura interior y exterior", "Tratamiento de humedad", "Aplicación de texturas especiales", "Garantía de 2 años"],
+        service: "Obras Comerciales",
+        description: "Espacios diseñados para que tu negocio funcione.",
+        features: ["Locales comerciales", "Oficinas", "Adaptaciones profesionales",],
         measure: "320/m²",
 
     }
     ,
     {
-        service: "Plomería",
-        description: "Trabajos de yeso, masillado, alisado de paredes y cielorrasos para terminaciones perfectas.",
-        features: ["Pintura interior y exterior", "Tratamiento de humedad", "Aplicación de texturas especiales", "Garantía de 2 años"],
+        service: "Reparaciones",
+        description: "Soluciones rápidas para problemas urgentes.",
+        features: ["Humedad y filtraciones", "Techos", "Arreglos generales",],
         measure: "320/m²",
 
     },
-     {
-        service: "Electricidad",
-        description: "Trabajos de yeso, masillado, alisado de paredes y cielorrasos para terminaciones perfectas.",
-        features: ["Pintura interior y exterior", "Tratamiento de humedad", "Aplicación de texturas especiales", "Garantía de 2 años"],
-        measure: "0/m²",
-
-    },
-
 ]

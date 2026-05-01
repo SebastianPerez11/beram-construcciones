@@ -5,34 +5,35 @@ export const proyects =
             titleProyect: "Refacción en departamento",
             subtitle: "Transformamos un departamento antiguo en un espacio moderno y funcional.",
             description: "Se realizaron trabajos de pintura, revoque fino y construcción en seco, priorizando terminaciones de alta calidad.",
-            location: "Boulevard Olimpico 4385.",
+            location: "Boulevard Olimpico - CABA.",
             status: "COMPLETADO",
-            bgColor: "bg-red-300",
+            bgImage: "bg-[url(../assets/img/proyects/RefaccionBarrioOlimpico.jpeg)] ",
         },
         {
 
-            titleProyect: "Refacción de Casa",
+            titleProyect: "Refacción de Pileta",
             subtitle: "Transformamos un departamento antiguo en un espacio moderno y funcional.",
             description: "Se realizaron trabajos de pintura, revoque fino y construcción en seco, priorizando terminaciones de alta calidad.",
-            location: "Boulevard Olimpico 4385.",
+            location: "Gerli - Buenos Aires.",
             status: "COMPLETADO",
-             bgColor: "bg-yellow-300",
-        }, { 
+            bgImage: "bg-[url(../assets/img/proyects/RefaccionGerli.jpeg)] ",
+        }, {
 
-            titleProyect: "Refacción en departamento",
+            titleProyect: "Terminaciones",
             subtitle: "Transformamos un departamento antiguo en un espacio moderno y funcional.",
             description: "Se realizaron trabajos de pintura, revoque fino y construcción en seco, priorizando terminaciones de alta calidad.",
-            location: "Boulevard Olimpico 4385.",
+            location: "Guatemala, Palermo - CABA.",
             status: "COMPLETADO",
-             bgColor: "bg-blue-300",
+            bgImage: "bg-[url(../assets/img/proyects/TerminacionesBorges.jpg)] ",
         },
-         { 
+        {
 
             titleProyect: "Refacción en departamento",
             subtitle: "Transformamos un departamento antiguo en un espacio moderno y funcional.",
             description: "Se realizaron trabajos de pintura, revoque fino y construcción en seco, priorizando terminaciones de alta calidad.",
             location: "Boulevard Olimpico 4385.",
             status: "COMPLETADO",
-             bgColor: "bg-green-300",
+            bgImage: "bg-[url(../assets/img/proyects/ObraSanVicente.jpeg)] ",
+
         },
     ]
