@@ -3,12 +3,13 @@ import IconArrowRightFilled from "../../public/assets/icon/IconArrowRightFilled.
 interface Props {
   text: string;
   href?: string;
+  class?:string;
 }
 ---
 
 <a
   href={Astro.props.href}
-  class=`flex text-center w-max p-1 pl-4 outline-[0.8px] rounded-full text-lg font-bold items-center gap-3 bg-white cursor-pointer`
+  class=`flex text-center w-max p-1 pl-4 outline-[0.8px] rounded-full text-lg font-bold items-center gap-3 bg-white cursor-pointer ${Astro.props.class}`
   >{Astro.props.text}<span class="bg-[#2C3E50] flex justify-center items-center size-11 rounded-full">
     <IconArrowRightFilled /></span
   ></a

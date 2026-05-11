@@ -1,21 +1,34 @@
 ---
-import LogoBeram from "../../public/assets/icon/LogoBeram.astro"
+import LogoBeram from "../../public/assets/icon/LogoBeram.astro";
+import IconMenuHamburger from "../../public/assets/icon/IconMenuHamburger.astro";
 ---
 
-<header class="w-full xl:flex justify-center fixed top-6 px-16 z-20 hidden ">
+<header class="w-full xl:flex justify-center fixed top-6 px-16 z-20 hidden">
   <nav
-    class="w-full h-20 max-w-475 flex justify-between items-center px-6 bg-white rounded-full shadow-lg "
+    class="w-full h-20 max-w-475 flex justify-between items-center px-6 bg-white rounded-full shadow-lg"
   >
     <div class="flex items-center gap-8">
       <a href="#home"> <LogoBeram /></a>
-    
+
       <span class="w-[0.5px] h-10 bg-black"></span>
       <ul class="flex gap-8">
-        <li><a class="font-bold text-[16.5px]" href="#sobre-nosotros">Inicio</a></li>
-        <li><a class="font-bold text-[16.5px]" href="#sobre-nosotros">Nosotros</a></li>
-        <li><a class="font-bold text-[16.5px]" href="#servicios">Servicios</a></li>
-        <li><a class="font-bold text-[16.5px]" href="#obras-realizadas">Proyectos</a></li>
-        <li><a class="font-bold text-[16.5px]" href="#contacto">Contacto</a></li>
+        <li>
+          <a class="font-bold text-[16.5px]" href="#sobre-nosotros">Inicio</a>
+        </li>
+        <li>
+          <a class="font-bold text-[16.5px]" href="#sobre-nosotros">Nosotros</a>
+        </li>
+        <li>
+          <a class="font-bold text-[16.5px]" href="#servicios">Servicios</a>
+        </li>
+        <li>
+          <a class="font-bold text-[16.5px]" href="#obras-realizadas"
+            >Proyectos</a
+          >
+        </li>
+        <li>
+          <a class="font-bold text-[16.5px]" href="#contacto">Contacto</a>
+        </li>
       </ul>
     </div>
 
@@ -30,5 +43,19 @@ import LogoBeram from "../../public/assets/icon/LogoBeram.astro"
         >Cotizar Ahora</a
       >
     </ul>
+  </nav>
+</header>
+
+<header class="w-full xl:hidden flex justify-center fixed top-6 px-6 z-20">
+  <nav
+    class="w-full h-20 max-w-475 flex justify-between items-center px-6 bg-white rounded-full shadow-lg"
+  >
+    <div class="w-full flex justify-between items-center gap-8">
+      <a href="#home"> <LogoBeram /></a>
+
+      <ul class="flex items-center text-lg gap-7">
+       <IconMenuHamburger/>
+      </ul>
+    </div>
   </nav>
 </header>

@@ -7,18 +7,15 @@ import PillSection from "../../components/PillSection.astro";
 
 <section
   id="home"
-  class="w-full max-w-480 grid grid-cols-2 min-h-max max-2xl:h-svh px-3 gap-3 xl:h-150"
+  class="w-full max-w-480 grid md:grid-cols-2 min-h-max max-2xl:h-svh px-3 gap-3 xl:h-150 grid-cols-1"
 >
   <div
-    class="bg-[#F6F3EC] w-full h-full rounded-4xl flex flex-col justify-end xl:px-16 lg:px-6"
+    class="bg-[#F6F3EC] w-full h-full rounded-4xl flex flex-col justify-end xl:px-16 px-4"
   >
     <header class="w-full mt-36">
-      <!-- <PillSection name="PRESUPUESTO SIN CARGO EN 24HS" /> -->
-      <div
-        class="inline-flex items-center gap-1 bg-[#f5f0e8] rounded-full"
-      >
+      <div class="inline-flex gap-1 bg-[#f5f0e8] rounded-full md:flex-row items-start md:items-center flex-col mb-2">
         <!-- Avatars superpuestos -->
-        <div class="flex items-center">
+        <div class="flex items-center z-10">
           <div
             class="size-8 rounded-full bg-gray-400 border-2 border-[#f5f0e8] relative z-30"
           >
@@ -38,51 +35,66 @@ import PillSection from "../../components/PillSection.astro";
         >
       </div>
       <Animado tipo="subir" delay={100}>
-        <h1 class="2xl:text-[82px] text-2xl font-bold mb-8 text-primary-blue">
+        <h1
+          class="xl:text-[82px] lg:text-6xl md:text-5xl text-[50px] lg:leading-none leading-14 font-bold md:mb-8 mb-4 text-primary-blue"
+        >
           Creando espacios <br />
           Construyendo <br />
           Confianza
         </h1>
       </Animado>
       <Animado tipo="subir" delay={300}>
-        <h2 class="text-[20.5px] font-bold mb-6">
+        <h2 class="xl:text-[20.5px] text-lg font-bold md:mb-6 mb-4 2xl:w-[60ch] w-full">
           Construcción y refacciones en todo <span
             class="font-extrabold text-primary-blue"
             >Buenos Aires
           </span>- Desde <span class="font-extrabold text-primary-blue"
             >Obras Completas
-          </span><br /> hasta <span class="font-extrabold text-primary-blue">
+          </span> hasta <span class="font-extrabold text-primary-blue">
             Reparaciones en tu Hogar</span
           >
         </h2>
 
-        <p class="text-[19px] font-bold mb-14">
+        <p class="text-[18px] 2xl:w-[50ch] w-full font-bold 2xl:mb-12 mb-6">
           Trabajamos con <span class="font-extrabold text-primary-blue"
             >Arquitectos y Propietarios directos</span
           > en todo tipo de proyectos.
         </p>
-        <ButtonPrimary href="#obras-realizadas" text="Consultar sin Cargo " />
       </Animado>
     </header>
-    <Animado tipo="derecha" delay={400} class="w-full">
-      <footer class="w-full flex justify-between items-end mb-10">
-        <p class="flex items-center gap-5 text-2xl font-medium">
-          <span class="text-[64px] font-bold text-[#2C3E50]">20</span>
-          <span class="w-[0.5px] h-20 bg-black inline-block"></span>
-          Años de <br /> experiencia
+    <Animado tipo="derecha" delay={400} class="w-full flex xl:flex-col flex-col-reverse">
+       <ButtonPrimary
+          class="mb-12"
+          href="#obras-realizadas"
+          text="Consultar sin Cargo "
+        />
+      <footer
+        class="w-full flex justify-between mb-10 xl:flex-row xl:items-end flex-col gap-4"
+      >
+        <p class="flex items-center xl:gap-5 gap-3 xl:text-2xl text-xl font-medium xl:w-[20ch] w-full">
+          <span class="xl:text-[64px] md:text-5xl text-[40px] font-bold text-[#2C3E50]">20</span>
+          <span class="w-[0.5px] xl:h-20 h-16 bg-black inline-block"></span>
+          Años de experiencia
         </p>
         <div
-          class="w-58 h-32 flex justify-center items-center rounded-lg bg-[url(../assets/img/HeroVideo.jpeg)] bg-cover"
+          class="xl:w-58 xl:h-32 h-40 w-full xl:flex justify-center items-center rounded-lg bg-[url(../assets/img/HeroVideo.jpeg)] bg-cover hidden"
         >
           <IconPlay />
         </div>
       </footer>
     </Animado>
   </div>
-  <Animado tipo="derecha" delay={500} class="w-full h-full">
+
+  <Animado tipo="derecha" delay={500} class="w-full h-full flex flex-col gap-3">
     <div
-      class="w-full h-full rounded-4xl bg-[url(../assets/img/HeroSection.jpeg)] bg-center bg-cover brightness-90"
+      class="w-full md:h-full h-65 rounded-4xl bg-[url(../assets/img/HeroSection.jpeg)] bg-center bg-cover brightness-90"
     >
+    </div>
+
+    <div
+      class="w-full h-140 md:flex justify-center items-center rounded-4xl bg-[url(../assets/img/HeroVideo.jpeg)] bg-cover xl:hidden hidden "
+    >
+      <IconPlay />
     </div>
   </Animado>
 </section>
