@@ -6,16 +6,19 @@ import IconEnterprise from "../../../public/assets/icon/IconEnterprise.astro";
 import Animado from "./Animado.astro";
 ---
 
-<section id="porque-elegirnos" class="w-306 flex flex-col h-max justify-between py-36">
+<section
+  id="porque-elegirnos"
+  class="flex flex-col h-max justify-between lg:py-36 py-12 xl:w-306 w-3xl max-w-full px-3"
+>
   <Animado tipo="subir" delay={0} class="w-full">
     <PillSection name="¿POR QUÉ ELEGIRNOS?" />
   </Animado>
 
-  <div class="flex w-full gap-9">
+  <div class="flex xl:flex-row flex-col w-full h-full gap-8">
     <Animado tipo="izquierda" delay={100} class="w-full">
-      <div class="flex flex-col justify-end">
+      <div class="flex flex-col justify-end h-full w-full">
         <span
-          class="h-175 w-127 rounded-4xl bg-[url(../assets/img/WhyChooseImage.jpg)] bg-center bg-cover relative"
+          class="md:h-175 h-120.5 xl:w-127 w-full rounded-4xl bg-[url(../assets/img/WhyChooseImage.jpg)] bg-center bg-cover relative"
         >
           <div class="h-full w-full rounded-4xl absolute bg-[#000921]/40"></div>
         </span>
@@ -24,8 +27,12 @@ import Animado from "./Animado.astro";
 
     <div class="w-full flex flex-col">
       <Animado tipo="subir" delay={100}>
-        <h2 class="text-7xl font-bold mb-8">Que nos diferencia de los demás</h2>
-        <p class="font-extrabold text-xl mb-2 text-[#5D5D5D]">
+        <h2
+          class="xl:w-full xl:text-7xl xl:leading-20 md:text-6xl md:w-[18ch] leading-12 text-[42px] font-bold lg:mb-8 mb-6"
+        >
+          Que nos diferencia de los demás
+        </h2>
+        <p class="font-extrabold md:text-xl text-lg mb-2 text-[#5D5D5D]">
           Nos especializamos en brindar soluciones constructivas integrales,
           combinando profesionalismo, eficiencia y compromiso.
         </p>
@@ -35,7 +42,9 @@ import Animado from "./Animado.astro";
         </p>
       </Animado>
 
-      <ul class="w-full flex flex-col items-center justify-between grow">
+      <ul
+        class="w-full flex flex-col items-center justify-between grow xl:gap-2 gap-8"
+      >
         <Animado tipo="subir" class="w-full flex" delay={200}>
           <li class="w-full flex">
             <span class="w-full h-px bg-[#5D5D5D] inline-block"></span>
@@ -43,15 +52,17 @@ import Animado from "./Animado.astro";
         </Animado>
 
         <Animado tipo="subir" class="w-full" delay={300}>
-          <li class="w-full flex gap-8 font-bold items-center">
+          <li
+            class="w-full flex md:gap-8 gap-3 font-bold items-center md:flex-row flex-col"
+          >
             <span
               class="bg-[#2C3E50] rounded-full size-14 shrink-0 flex justify-center items-center"
               ><IconEnterprise />
             </span>
-            <span class="text-lg w-24 font-extrabold"
+            <span class="text-xl w-24 font-extrabold text-center"
               >Empresa <br /> Responsable</span
             >
-            <p class="text-lg font-bold text-[#5A6271]">
+            <p class="text-lg font-bold text-[#5A6271] text-center px-6">
               Cumplimos con todas las normativas vigentes y priorizamos la
               seguridad, sostenibilidad y transparencia en cada obra.
             </p>
@@ -63,22 +74,26 @@ import Animado from "./Animado.astro";
             <span class="w-full h-px bg-[#5D5D5D] inline-block"></span>
           </li>
         </Animado>
+
         <Animado tipo="subir" class="w-full" delay={500}>
-          <li class="w-full flex gap-8 font-bold items-center">
+          <li
+            class="w-full flex md:gap-8 gap-3 font-bold items-center md:flex-row flex-col"
+          >
             <span
               class="bg-[#2C3E50] rounded-full size-14 shrink-0 flex justify-center items-center"
             >
               <IconShield /></span
             >
-            <span class="text-lg w-24 font-extrabold"
+            <span class="text-xl w-24 font-extrabold text-center"
               >Calidad <br /> Garantizada</span
             >
-            <p class="text-lg font-bold text-[#5A6271]">
+            <p class="text-lg font-bold text-[#5A6271] text-center px-6">
               Utilizamos materiales de primera línea y técnicas actualizadas
               para asegurar resultados duraderos.
             </p>
           </li>
         </Animado>
+
         <Animado tipo="subir" class="w-full flex" delay={600}>
           <li class="w-full flex">
             <span class="w-full h-px bg-[#5D5D5D] inline-block"></span>
@@ -86,16 +101,18 @@ import Animado from "./Animado.astro";
         </Animado>
 
         <Animado tipo="subir" class="w-full" delay={600}>
-          <li class="w-full flex gap-8 font-bold items-center">
+          <li
+            class="w-full flex md:gap-8 gap-3 font-bold items-center md:flex-row flex-col"
+          >
             <span
               class="bg-[#2C3E50] rounded-full size-14 shrink-0 flex justify-center items-center"
             >
               <IconAttention />
             </span>
-            <span class="text-lg font-extrabold w-24"
+            <span class="text-xl font-extrabold w-24 text-center"
               >Atención <br /> Personalizada</span
             >
-            <p class="text-lg font-bold text-[#5A6271]">
+            <p class="text-lg font-bold text-[#5A6271] text-center px-6">
               Acompañamos a nuestros clientes en todo el proceso, desde el
               diseño hasta la entrega final.
             </p>
