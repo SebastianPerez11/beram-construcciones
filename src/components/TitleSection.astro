@@ -1,0 +1,12 @@
+---
+interface Props {
+    text: string;
+    class?: string;
+}
+---
+
+<h1
+    class=`xl:w-full xl:text-7xl xl:leading-20 md:text-6xl md:w-[18ch] font-bold leading-12 text-[42px] ${Astro.props.class}`
+>
+    {Astro.props.text}
+</h1>

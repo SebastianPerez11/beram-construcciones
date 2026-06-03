@@ -4,33 +4,34 @@ import IconArrowR from "../../../public/assets/icon/IconArrowR.astro";
 import CardService from "../../components/CardService.astro";
 import PillSection from "../../components/PillSection.astro";
 import Animado from "./Animado.astro";
+import TitleSection from "../../components/TitleSection.astro";
 ---
 
 <section
   id="servicios"
-  class="w-full rounded-4xl relative bg-[url(../assets/img/ServiceImage.jpg)] bg-center bg-cover min-h-250 h-max"
+  class="w-full rounded-4xl relative bg-[url(../assets/img/ServiceImage.jpg)] bg-center bg-cover min-h-250"
 >
-  <div
-    class="h-full w-full rounded-4xl absolute flex justify-center bg-[#000921]/40 items-center"
-  >
-    <div class="w-306 h-202.5 relative">
-      <div
-        class="flex flex-col gap-8 absolute items-center justify-center w-480 overflow-hidden"
-      >
-        <header class="w-full mb-2">
+  <div class="absolute inset-0 rounded-4xl bg-[#000921]/40"></div>
+
+  <div class="relative z-10 flex justify-center items-center py-16 px-4 md:px-8 xl:px-16">
+    <div class="w-full max-w-306">
+      <div class="flex flex-col gap-6 w-full overflow-hidden">
+        <header class="w-full">
+
           <Animado tipo="subir" delay={0}>
             <PillSection name="QUE OFRECEMOS" />
           </Animado>
 
           <Animado tipo="subir" delay={100}>
-            <h1 class="text-7xl font-bold text-white mb-6">
-              Soluciones Constructivas a Medida
-            </h1>
+            <TitleSection
+              class="text-white mb-4 md:mb-8"
+              text="Soluciones Constructivas a Medida"
+            />
           </Animado>
 
-          <div class="flex w-[80%] justify-between items-center">
+          <div class="flex flex-col md:flex-row w-full md:w-full justify-between md:items-center gap-4 md:mb-12 mb-10 items-center">
             <Animado tipo="subir" delay={200}>
-              <h2 class="text-white text-xl font-bold">
+              <h2 class="text-white text-xl font-bold mb-6 md:mb-0 md:max-w-full">
                 Cada servicio es ejecutado por profesionales especializados,
                 garantizando calidad, seguridad y cumplimiento de plazos.
               </h2>
@@ -53,118 +54,97 @@ import Animado from "./Animado.astro";
               </div>
             </Animado>
           </div>
-        </header>
 
-        <footer class="flex gap-8 w-full overflow-hidden">
-          <div
-            id="carousel-container"
-            class="flex gap-8 transition-transform duration-500 ease-in-out"
-          >
-            <CardService />
-          </div>
-        </footer>
+          <footer class="w-full overflow-hidden">
+            <div
+              id="carousel-container"
+              class="flex gap-4 md:gap-8 transition-transform duration-500 ease-in-out"
+            >
+              <CardService />
+            </div>
+          </footer>
+
+        </header>
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let currentIndex = 0;
+      let autoplayInterval: number | undefined;
+
+      const section = document.getElementById("servicios") as HTMLElement | null;
+      const container = document.getElementById("carousel-container") as HTMLElement | null;
+      const prevBtn = document.getElementById("prevBtn") as HTMLButtonElement | null;
+      const nextBtn = document.getElementById("nextBtn") as HTMLButtonElement | null;
+
+      if (!section || !container || !prevBtn || !nextBtn) return;
+
+      const cards = Array.from(container.children) as HTMLElement[];
+      const totalCards = cards.length;
+
+      // Calcula el ancho real de la card + gap dinámicamente
+      function getCardWidth() {
+        const card = cards[0];
+        if (!card) return 0;
+        const gap = window.innerWidth < 768 ? 16 : 32;
+        return card.offsetWidth + gap;
+      }
+
+      function updateCarousel() {
+        if (!container) return;
+        const offset = -(currentIndex * getCardWidth());
+        container.style.transform = `translateX(${offset}px)`;
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalCards;
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+        updateCarousel();
+      }
+
+      function startAutoplay() {
+        if (autoplayInterval !== undefined) return;
+        autoplayInterval = window.setInterval(nextSlide, 3000);
+      }
+
+      function stopAutoplay() {
+        if (autoplayInterval !== undefined) {
+          window.clearInterval(autoplayInterval);
+          autoplayInterval = undefined;
+        }
+      }
+
+      // Recalcula al cambiar tamaño de ventana
+      window.addEventListener("resize", updateCarousel);
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) startAutoplay();
+            else stopAutoplay();
+          });
+        },
+        { threshold: 0.7 }
+      );
+
+      observer.observe(section);
+
+      prevBtn.addEventListener("click", () => { stopAutoplay(); prevSlide(); startAutoplay(); });
+      nextBtn.addEventListener("click", () => { stopAutoplay(); nextSlide(); startAutoplay(); });
+
+      container.addEventListener("mouseenter", stopAutoplay);
+      container.addEventListener("mouseleave", () => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) startAutoplay();
+      });
+
+      updateCarousel();
+    });
+  </script>
 </section>
-
-<script>
-  // Esperar a que el DOM esté listo
-  document.addEventListener("DOMContentLoaded", () => {
-    let currentIndex = 0;
-    let autoplayInterval: number | undefined;
-
-    const section = document.getElementById("servicios") as HTMLElement | null;
-    const container = document.getElementById(
-      "carousel-container",
-    ) as HTMLElement | null;
-    const prevBtn = document.getElementById(
-      "prevBtn",
-    ) as HTMLButtonElement | null;
-    const nextBtn = document.getElementById(
-      "nextBtn",
-    ) as HTMLButtonElement | null;
-
-    if (!section || !container || !prevBtn || !nextBtn) return;
-
-    const cards = Array.from(container.children) as HTMLElement[];
-    const totalCards = cards.length;
-    const cardWidth = 440 + 32;
-
-    function updateCarousel() {
-      if (!container) return;
-      const offset = -(currentIndex * cardWidth);
-      container.style.transform = `translateX(${offset}px)`;
-    }
-
-    function nextSlide() {
-      currentIndex++;
-      if (currentIndex >= totalCards) {
-        currentIndex = 0;
-      }
-      updateCarousel();
-    }
-
-    function prevSlide() {
-      currentIndex--;
-      if (currentIndex < 0) {
-        currentIndex = totalCards - 1;
-      }
-      updateCarousel();
-    }
-
-    function startAutoplay() {
-      if (autoplayInterval !== undefined) return;
-      autoplayInterval = window.setInterval(nextSlide, 3000);
-    }
-
-    function stopAutoplay() {
-      if (autoplayInterval !== undefined) {
-        window.clearInterval(autoplayInterval);
-        autoplayInterval = undefined;
-      }
-    }
-
-    // Intersection Observer - inicia/detiene según visibilidad
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            startAutoplay();
-          } else {
-            stopAutoplay();
-          }
-        });
-      },
-      {
-        threshold: 0.7,
-        rootMargin: "0px",
-      },
-    );
-
-    observer.observe(section);
-
-    // Event listeners para los botones
-    prevBtn.addEventListener("click", () => {
-      stopAutoplay();
-      prevSlide();
-      startAutoplay();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      stopAutoplay();
-      nextSlide();
-      startAutoplay();
-    });
-
-    // Pausar en hover
-    container.addEventListener("mouseenter", stopAutoplay);
-    container.addEventListener("mouseleave", () => {
-      const rect = section.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-      if (isVisible) startAutoplay();
-    });
-
-    updateCarousel();
-  });
-</script>
