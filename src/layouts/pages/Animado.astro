@@ -17,7 +17,9 @@ const { tipo = 'subir', class: className, delay = 0 } = Astro.props;
   <slot />
 </div>
 
-<script>
+<script>  
+  const isMobile = window.innerWidth < 768;
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -25,8 +27,8 @@ const { tipo = 'subir', class: className, delay = 0 } = Astro.props;
       }
     });
   }, {
-    threshold: 0.5,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: isMobile ? 0.1 : 0.5,
+    rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px'
   });
 
   const elementos = document.querySelectorAll('[data-animar]');

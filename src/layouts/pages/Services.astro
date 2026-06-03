@@ -13,11 +13,12 @@ import TitleSection from "../../components/TitleSection.astro";
 >
   <div class="absolute inset-0 rounded-4xl bg-[#000921]/40"></div>
 
-  <div class="relative z-10 flex justify-center items-center py-16 px-4 md:px-8 xl:px-16">
+  <div
+    class="relative z-10 flex justify-center items-center py-16 px-4 md:px-8 xl:px-16"
+  >
     <div class="w-full max-w-306">
       <div class="flex flex-col gap-6 w-full overflow-hidden">
         <header class="w-full">
-
           <Animado tipo="subir" delay={0}>
             <PillSection name="QUE OFRECEMOS" />
           </Animado>
@@ -29,9 +30,13 @@ import TitleSection from "../../components/TitleSection.astro";
             />
           </Animado>
 
-          <div class="flex flex-col md:flex-row w-full md:w-full justify-between md:items-center gap-4 md:mb-12 mb-10 items-center">
+          <div
+            class="flex flex-col md:flex-row w-full md:w-full justify-between md:items-center gap-4 md:mb-12 mb-10 items-center"
+          >
             <Animado tipo="subir" delay={200}>
-              <h2 class="text-white text-xl font-bold mb-6 md:mb-0 md:max-w-full">
+              <h2
+                class="text-white text-xl font-bold mb-6 md:mb-0 md:max-w-full"
+              >
                 Cada servicio es ejecutado por profesionales especializados,
                 garantizando calidad, seguridad y cumplimiento de plazos.
               </h2>
@@ -58,12 +63,11 @@ import TitleSection from "../../components/TitleSection.astro";
           <footer class="w-full overflow-hidden">
             <div
               id="carousel-container"
-              class="flex gap-4 md:gap-8 transition-transform duration-500 ease-in-out"
+              class="flex gap-4 md:gap-8 transition-transform duration-500 ease-in-out w-full md:justify-normal justify-center"
             >
               <CardService />
             </div>
           </footer>
-
         </header>
       </div>
     </div>
@@ -74,10 +78,18 @@ import TitleSection from "../../components/TitleSection.astro";
       let currentIndex = 0;
       let autoplayInterval: number | undefined;
 
-      const section = document.getElementById("servicios") as HTMLElement | null;
-      const container = document.getElementById("carousel-container") as HTMLElement | null;
-      const prevBtn = document.getElementById("prevBtn") as HTMLButtonElement | null;
-      const nextBtn = document.getElementById("nextBtn") as HTMLButtonElement | null;
+      const section = document.getElementById(
+        "servicios",
+      ) as HTMLElement | null;
+      const container = document.getElementById(
+        "carousel-container",
+      ) as HTMLElement | null;
+      const prevBtn = document.getElementById(
+        "prevBtn",
+      ) as HTMLButtonElement | null;
+      const nextBtn = document.getElementById(
+        "nextBtn",
+      ) as HTMLButtonElement | null;
 
       if (!section || !container || !prevBtn || !nextBtn) return;
 
@@ -130,13 +142,21 @@ import TitleSection from "../../components/TitleSection.astro";
             else stopAutoplay();
           });
         },
-        { threshold: 0.7 }
+        { threshold: 0.7 },
       );
 
       observer.observe(section);
 
-      prevBtn.addEventListener("click", () => { stopAutoplay(); prevSlide(); startAutoplay(); });
-      nextBtn.addEventListener("click", () => { stopAutoplay(); nextSlide(); startAutoplay(); });
+      prevBtn.addEventListener("click", () => {
+        stopAutoplay();
+        prevSlide();
+        startAutoplay();
+      });
+      nextBtn.addEventListener("click", () => {
+        stopAutoplay();
+        nextSlide();
+        startAutoplay();
+      });
 
       container.addEventListener("mouseenter", stopAutoplay);
       container.addEventListener("mouseleave", () => {

@@ -3,19 +3,30 @@ import PillSection from "../../components/PillSection.astro";
 import CardProyect from "../../components/CardProyect.astro";
 import Animado from "./Animado.astro";
 import ButtonPrimary from "../../components/ButtonPrimary.astro";
+import TitleSection from "../../components/TitleSection.astro";
 ---
 
-<section id="obras-realizadas" class="w-full bg-[#efeadd] flex flex-col items-center h-max justify-center p-32">
-  <Animado tipo="subir" class="w-full flex items-center justify-center" delay={0}>
-  <PillSection name="OBRAS REALIZADAS" />
-</Animado>
-  <div class="flex flex-col items-center w-306 mb-12">
-     <Animado tipo="subir" class="w-full" delay={200}>
-    <h2 class="text-7xl font-bold leading-20 text-center mb-14">
-      Descubre nuestros <br> proyectos
-    </h2>
-</Animado>
-  <CardProyect/>
+<section
+  id="obras-realizadas"
+  class="w-full bg-[#efeadd] flex flex-col items-center h-max justify-center lg:py-36 py-12 px-3"
+>
+  <div class="xl:w-306 w-3xl max-w-full flex flex-col items-center">
+    <Animado
+      tipo="subir"
+      class="w-full flex items-center justify-center"
+      delay={0}
+    >
+      <PillSection name="OBRAS REALIZADAS" />
+    </Animado>
+    <div class="flex flex-col items-center w-full mb-12">
+      <Animado tipo="subir" class="w-full" delay={200}>
+        <TitleSection
+          class="text-center mb-14"
+          text="Descubre nuestros proyectos"
+        />
+      </Animado>
+      <CardProyect />
+    </div>
+    <ButtonPrimary text="Ver todos los trabajos" />
   </div>
-    <ButtonPrimary text="Ver todos los trabajos"/>
 </section>
