@@ -1,0 +1,21 @@
+---
+    interface Props {
+        title : string;
+        parag: string;
+    }
+---
+          <li
+            class="w-full flex md:gap-10 gap-3 font-bold items-center md:flex-row flex-col"
+          >
+            <span
+              class="bg-[#2C3E50] rounded-full size-14 shrink-0 flex justify-center items-center"
+              >
+              <slot name="icon"></slot>
+            </span>
+            <span class="text-xl max-w-full md:w-24 w-full font-extrabold md:text-start text-center"
+              >{Astro.props.title}</span
+            >
+            <p class="text-lg font-bold text-[#5A6271] md:text-start text-center px-0">
+             {Astro.props.parag}
+            </p>
+          </li>

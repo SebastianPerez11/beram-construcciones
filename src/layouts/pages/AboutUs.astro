@@ -13,73 +13,74 @@ import TitleSection from "../../components/TitleSection.astro";
   class="xl:w-306 xl:flex-row w-3xl flex h-max justify-between xl:py-36 lg:py-18 py-12 flex-col gap-6 max-w-full px-3"
 >
   <!-- Columna izquierda - Todo junto -->
-  <Animado tipo="subir" delay={0} class="w-full">
+  <Animado tipo="subir" delay={0} class="">
     <div class="flex flex-col justify-start">
       <PillSection name="SOBRE NOSOTROS" />
       <TitleSection
+        class="xl:w-[14ch]"
         text=" Nuestro Compromiso va mas allá de cumplir un plano"
       />
     </div>
-
-    <!-- Columna derecha -->
-    <div class="w-full flex flex-col">
-      <Animado tipo="subir" delay={100}>
-        <div>
-          <h3 class="font-bold text-xl mb-4">
-            Más de 20 años construyendo proyectos de todo tipo y escala en
-            Buenos Aires. Desde obra nueva hasta refacciones, con el mismo nivel
-            de profesionalismo.
-          </h3>
-
-          <p class="text-xl font-semibold text-[#505050] mb-4">
-            En Beram no solo ejecutamos, acompañamos cada etapa. Desde la
-            planificación hasta la entrega final, garantizando calidad,
-            seguridad y cumplimiento de plazos.
-          </p>
-
-          <p class="font-bold text-lg mb-6">Nuestros pilares:</p>
-        </div>
-      </Animado>
-
-      <!-- Solo los pilares animados -->
-      <Animado tipo="zoom" delay={250}>
-        <ul class="flex items-center justify-between mb-8 md:px-4 px-0">
-          <li
-            class="flex flex-col items-center gap-2 font-extrabold text-base text-center"
-          >
-            <span
-              class="bg-[#2C3E50] rounded-full size-12 flex justify-center items-center"
-            >
-              <IconPaint />
-            </span>Maquinaria Propia
-          </li>
-          <li><span class="w-[0.5px] h-12 bg-black md:block hidden"></span></li>
-          <li
-            class="flex flex-col items-center gap-2 font-extrabold text-base text-center"
-          >
-            <span
-              class="bg-[#2C3E50] rounded-full size-12 flex justify-center items-center"
-            >
-              <IconTime />
-            </span>Puntualidad Garantizada
-          </li>
-          <li><span class="w-[0.5px] h-12 bg-black md:block hidden"></span></li>
-
-          <li
-            class="flex flex-col items-center gap-2 font-extrabold text-base text-center"
-          >
-            <span
-              class="bg-[#2C3E50] rounded-full size-12 flex justify-center items-center"
-            >
-              <IconSolutions />
-            </span>Soluciones a Medida
-          </li>
-        </ul>
-      </Animado>
-
-      <Animado tipo="subir" delay={350}>
-        <ButtonPrimary text="Ver cómo trabajamos" />
-      </Animado>
-    </div>
   </Animado>
+  <Animado tipo="subir" delay={100} class="" />
+  <!-- Columna derecha -->
+  <div class="w-full flex flex-col">
+    <Animado tipo="subir" delay={100}>
+      <div>
+        <h3 class="font-bold text-xl mb-4">
+          Más de 20 años construyendo proyectos de todo tipo y escala en Buenos
+          Aires. Desde obra nueva hasta refacciones, con el mismo nivel de
+          profesionalismo.
+        </h3>
+
+        <p class="text-xl font-semibold text-[#505050] mb-4">
+          En Beram no solo ejecutamos, acompañamos cada etapa. Desde la
+          planificación hasta la entrega final, garantizando calidad, seguridad
+          y cumplimiento de plazos.
+        </p>
+
+        <p class="font-bold text-lg mb-6">Nuestros pilares:</p>
+      </div>
+    </Animado>
+
+    <!-- Solo los pilares animados -->
+    <Animado tipo="zoom" delay={250}>
+      <ul class="flex items-center justify-between mb-8 md:px-4 px-0">
+        <li
+          class="flex flex-col items-center gap-2 font-extrabold text-base text-center"
+        >
+          <span
+            class="bg-[#2C3E50] rounded-full size-12 flex justify-center items-center"
+          >
+            <IconPaint />
+          </span>Maquinaria Propia
+        </li>
+        <li><span class="w-[0.5px] h-12 bg-black md:block hidden"></span></li>
+        <li
+          class="flex flex-col items-center gap-2 font-extrabold text-base text-center"
+        >
+          <span
+            class="bg-[#2C3E50] rounded-full size-12 flex justify-center items-center"
+          >
+            <IconTime />
+          </span>Puntualidad Garantizada
+        </li>
+        <li><span class="w-[0.5px] h-12 bg-black md:block hidden"></span></li>
+
+        <li
+          class="flex flex-col items-center gap-2 font-extrabold text-base text-center"
+        >
+          <span
+            class="bg-[#2C3E50] rounded-full size-12 flex justify-center items-center"
+          >
+            <IconSolutions />
+          </span>Soluciones a Medida
+        </li>
+      </ul>
+    </Animado>
+
+    <Animado tipo="subir" delay={350}>
+      <ButtonPrimary text="Ver cómo trabajamos" />
+    </Animado>
+  </div>
 </section>

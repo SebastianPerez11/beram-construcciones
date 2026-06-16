@@ -4,6 +4,7 @@ import IconAttention from "../../../public/assets/icon/IconAttention.astro";
 import PillSection from "../../components/PillSection.astro";
 import IconEnterprise from "../../../public/assets/icon/IconEnterprise.astro";
 import Animado from "./Animado.astro";
+import PillWhyChoose from "../../components/PillWhyChoose.astro";
 ---
 
 <section
@@ -45,28 +46,14 @@ import Animado from "./Animado.astro";
       <ul
         class="w-full flex flex-col items-center justify-between grow xl:gap-2 gap-8"
       >
-        <Animado tipo="subir" class="w-full flex" delay={200}>
-          <li class="w-full flex">
-            <span class="w-full h-px bg-[#5D5D5D] inline-block"></span>
-          </li>
-        </Animado>
-
         <Animado tipo="subir" class="w-full" delay={300}>
-          <li
-            class="w-full flex md:gap-8 gap-3 font-bold items-center md:flex-row flex-col"
+          <PillWhyChoose
+            title="Empresa Responsable"
+            parag="Cumplimos con todas las normativas vigentes y priorizamos la
+              seguridad, sostenibilidad y transparencia en cada obra."
           >
-            <span
-              class="bg-[#2C3E50] rounded-full size-14 shrink-0 flex justify-center items-center"
-              ><IconEnterprise />
-            </span>
-            <span class="text-xl w-24 font-extrabold text-center"
-              >Empresa <br /> Responsable</span
-            >
-            <p class="text-lg font-bold text-[#5A6271] text-center px-6">
-              Cumplimos con todas las normativas vigentes y priorizamos la
-              seguridad, sostenibilidad y transparencia en cada obra.
-            </p>
-          </li>
+            <slot slot="icon"><IconEnterprise /></slot>
+          </PillWhyChoose>
         </Animado>
 
         <Animado tipo="subir" class="w-full flex" delay={400}>
@@ -76,22 +63,13 @@ import Animado from "./Animado.astro";
         </Animado>
 
         <Animado tipo="subir" class="w-full" delay={500}>
-          <li
-            class="w-full flex md:gap-8 gap-3 font-bold items-center md:flex-row flex-col"
+          <PillWhyChoose
+            title="Calidad Garantizada"
+            parag="Utilizamos materiales de primera línea y técnicas actualizadas
+              para asegurar resultados duraderos."
           >
-            <span
-              class="bg-[#2C3E50] rounded-full size-14 shrink-0 flex justify-center items-center"
-            >
-              <IconShield /></span
-            >
-            <span class="text-xl w-24 font-extrabold text-center"
-              >Calidad <br /> Garantizada</span
-            >
-            <p class="text-lg font-bold text-[#5A6271] text-center px-6">
-              Utilizamos materiales de primera línea y técnicas actualizadas
-              para asegurar resultados duraderos.
-            </p>
-          </li>
+            <slot slot="icon"><IconShield /></slot>
+          </PillWhyChoose>
         </Animado>
 
         <Animado tipo="subir" class="w-full flex" delay={600}>
@@ -101,22 +79,13 @@ import Animado from "./Animado.astro";
         </Animado>
 
         <Animado tipo="subir" class="w-full" delay={600}>
-          <li
-            class="w-full flex md:gap-8 gap-3 font-bold items-center md:flex-row flex-col"
+          <PillWhyChoose
+            title="Atención Personalizada"
+            parag="Acompañamos a nuestros clientes en todo el proceso, desde el
+              diseño hasta la entrega final."
           >
-            <span
-              class="bg-[#2C3E50] rounded-full size-14 shrink-0 flex justify-center items-center"
-            >
-              <IconAttention />
-            </span>
-            <span class="text-xl font-extrabold w-24 text-center"
-              >Atención <br /> Personalizada</span
-            >
-            <p class="text-lg font-bold text-[#5A6271] text-center px-6">
-              Acompañamos a nuestros clientes en todo el proceso, desde el
-              diseño hasta la entrega final.
-            </p>
-          </li>
+            <slot slot="icon"><IconAttention /></slot>
+          </PillWhyChoose>
         </Animado>
       </ul>
     </div>
