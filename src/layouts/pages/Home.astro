@@ -13,11 +13,13 @@ import PillSection from "../../components/PillSection.astro";
     class="bg-[#F6F3EC] w-full h-full rounded-4xl flex flex-col justify-end xl:px-16 px-4"
   >
     <header class="w-full mt-36">
-      <div class="inline-flex gap-1 bg-[#f5f0e8] rounded-full md:flex-row items-center mb-2">
+      <div
+        class="inline-flex gap-1 bg-[#f5f0e8] rounded-full md:flex-row items-center mb-2"
+      >
         <!-- Avatars superpuestos -->
         <div class="flex items-center z-10">
           <div
-            class="size-8 rounded-full bg-gray-500m  border-2 border-[#f5f0e8] relative z-30"
+            class="size-8 rounded-full bg-gray-500 border-2 border-[#f5f0e8] relative z-30"
           >
           </div>
           <div
@@ -36,7 +38,7 @@ import PillSection from "../../components/PillSection.astro";
       </div>
       <Animado tipo="subir" delay={100}>
         <h1
-          class="xl:text-[82px] lg:text-6xl md:text-5xl text-[38px] leading-10 lg:leading-none md:leading-14 font-bold md:mb-8 mb-4 text-primary-blue"
+          class="xl:text-[82px] lg:text-6xl md:text-5xl text-[48px] leading-12 lg:leading-none md:leading-14 font-bold md:mb-8 mb-4 text-primary-blue"
         >
           Creando espacios <br />
           Construyendo <br />
@@ -44,7 +46,9 @@ import PillSection from "../../components/PillSection.astro";
         </h1>
       </Animado>
       <Animado tipo="subir" delay={300}>
-        <h2 class="xl:text-[20.5px] text-lg font-bold md:mb-6 mb-4 2xl:w-[60ch] w-full">
+        <h2
+          class="xl:text-[20.5px] text-lg font-bold md:mb-6 mb-4 2xl:w-[60ch] w-full"
+        >
           Construcción y refacciones en todo <span
             class="font-extrabold text-primary-blue"
             >Buenos Aires
@@ -62,17 +66,26 @@ import PillSection from "../../components/PillSection.astro";
         </p>
       </Animado>
     </header>
-    <Animado tipo="derecha" delay={400} class="w-full flex xl:flex-col flex-col-reverse">
-       <ButtonPrimary
-          class="mb-12"
-          href="#obras-realizadas"
-          text="Consultar sin Cargo "
-        />
+    <Animado
+      tipo="derecha"
+      delay={400}
+      class="w-full flex xl:flex-col flex-col-reverse"
+    >
+      <ButtonPrimary
+        class="mb-12"
+        href="#contacto"
+        text="Consultar sin Cargo "
+      />
       <footer
         class="w-full flex justify-between mb-10 xl:flex-row xl:items-end flex-col gap-4"
       >
-        <p class="flex items-center xl:gap-5 gap-3 xl:text-2xl text-xl font-medium xl:w-[20ch] w-full">
-          <span class="xl:text-[64px] md:text-5xl text-[40px] font-bold text-[#2C3E50]">20</span>
+        <p
+          class="flex items-center xl:gap-5 gap-3 xl:text-2xl text-xl font-medium xl:w-[20ch] w-full"
+        >
+          <span
+            class="xl:text-[64px] md:text-5xl text-[40px] font-bold text-[#2C3E50]"
+            >32</span
+          >
           <span class="w-[0.5px] xl:h-20 h-16 bg-black inline-block"></span>
           Años de experiencia
         </p>
@@ -92,7 +105,7 @@ import PillSection from "../../components/PillSection.astro";
     </div>
 
     <div
-      class="w-full h-140 md:flex justify-center items-center rounded-4xl bg-[url(../assets/img/HeroVideo.jpeg)] bg-cover xl:hidden hidden "
+      class="w-full h-140 md:flex justify-center items-center rounded-4xl bg-[url(../assets/img/HeroVideo.jpeg)] bg-cover xl:hidden hidden"
     >
       <IconPlay />
     </div>

@@ -1,53 +1,57 @@
 ---
 import LogoBeramFull from "../../../public/assets/icon/LogoBeramFull.astro";
+import TitleSection from "../../components/TitleSection.astro";
 import Animado from "./Animado.astro";
 ---
 
 <section
-    class="w-full flex justify-center h-max rounded-tr-4xl rounded-tl-4xl bg-[url(../assets/img/FooterImage.jpg)] relative bg-cover bg-center items-center px-18"
+    class="w-full flex justify-center h-max rounded-tr-4xl rounded-tl-4xl bg-[url(../assets/img/FooterImage.jpg)] relative bg-cover bg-center items-center xl:px-18 lg:px-6"
 >
- <!-- Overlay oscuro -->
-    <div class="absolute inset-0 bg-black/50 rounded-tr-4xl rounded-tl-4xl"></div>
+    <!-- Overlay oscuro -->
+    <div class="absolute inset-0 bg-black/60 rounded-tr-4xl rounded-tl-4xl">
+    </div>
     <div class="w-full h-full py-20 flex flex-col justify-center items-center">
         <Animado tipo="bajar" delay={0}>
-            <header class="mb-18">
-                <h2
-                    class="text-7xl font-bold leading-20 mb-6 text-center text-white"
+            <header class="xl:mb-18 mb-12">
+                <TitleSection
+                    class="text-white text-center mb-6 xl:w-[20ch]"
+                    text="Solidez, diseño y calidad en cada obra"
+                />
+                <p
+                    class="text-center font-bold italic xl:text-2xl text-xl text-white"
                 >
-                    Solidez, diseño y calidad <br /> en cada obra
-                </h2>
-                <p class="text-center font-bold italic text-xl text-white">
                     Ofrecemos soluciones integrales para proyectos residenciales
                     y comerciales, <br /> combinando tecnología, eficiencia y una
                     atención personalizada.
                 </p>
             </header>
         </Animado>
+
         <Animado class="w-full flex justify-center" tipo="subir" delay={150}>
             <footer
-                class="bg-white w-full h-max py-20 rounded-4xl px-20 grid grid-cols-12 gap-10 max-w-425 relative"
+                class="bg-white w-full h-max md:py-14 py-10 rounded-4xl xl:px-20 lg:px-6 px-3 grid grid-cols-12 lg:gap-10 gap-6 max-w-425 relative"
             >
-                <div class="col-span-4 flex justify-between gap-8 ">
+                <div
+                    class="xl:col-span-6 lg:col-span-5 col-span-full flex justify-between"
+                >
                     <div class="text-[17px]">
                         <LogoBeramFull />
-                        <p class="mt-5 font-bold mb-6 text-black]">
+                        <p class="font-semibold xl:mb-6 mb-0 mt-6 text-black">
                             Nos especializamos en soluciones integrales de
                             construcción, ofreciendo proyectos personalizados,
                             eficientes y de alta calidad, adaptados a cada
                             cliente.
                         </p>
-                        <time datetime="" class="font-semibold">
-                            <span class="font-bold">Horario de atención:</span> Lun
-                            a Vie de 9:00 a 18:00 hs</time
-                        >
                     </div>
-
-                    <span class="w-[0.5px] h-full bg-black inline-block"></span>
                 </div>
 
-                <div class="col-span-4 flex justify-between gap-8 w-full">
-                    <div class="flex justify-center gap-12 w-full">
-                        <ul class="text-[17px]">
+                <div
+                    class="xl:col-span-6 lg:col-span-7 col-span-full flex justify-between w-full"
+                >
+                    <div
+                        class="flex flex-wrap lg:justify-center justify-start md:gap-12 gap-4 w-full"
+                    >
+                        <ul class="text-[17px] font-semibold">
                             <li
                                 class="text-primary-blue font-bold text-xl mb-2"
                             >
@@ -59,7 +63,7 @@ import Animado from "./Animado.astro";
                             <li class="mb-2">Nosotros</li>
                             <li class="mb-2">Contacto</li>
                         </ul>
-                        <ul class="text-[17px]">
+                        <ul class="text-[17px] font-semibold">
                             <li
                                 class="text-primary-blue font-bold text-xl mb-2"
                             >
@@ -70,44 +74,42 @@ import Animado from "./Animado.astro";
                             <li class="mb-2">Novedades</li>
                             <li class="mb-2">Trabaja con Nosotros</li>
                         </ul>
+                        <ul class="text-[17px] font-semibold">
+                            <li
+                                class="text-primary-blue font-bold text-xl mb-2"
+                            >
+                                Contacto
+                            </li>
+                            <li class="mb-2">
+                                <span class="font-bold">
+                                </span>beramconstrucciones@gmail.com
+                            </li>
+                            <li class="mb-2">
+                                <span class="font-bold"> </span>+(011) 4029 7164
+                            </li>
+                            <li class="mb-2">
+                                <span class="font-bold"></span>Zona norte y CABA
+                            </li>
+                        </ul>
                     </div>
-
-                    <span class="w-[0.5px] h-full bg-black inline-block"></span>
-                </div>
-
-                <div class="col-span-4">
-                    <ul class="text-[17px]">
-                        <li class="text-primary-blue font-bold text-xl mb-2">
-                            Contacto
-                        </li>
-                        <li class="mb-2">
-                            <span class="font-bold"
-                                >Email:
-                            </span>beramconstrucciones@gmail.com
-                        </li>
-                        <li class="mb-2">
-                            <span class="font-bold">Telefono: </span>+(011) 4029
-                            7164
-                        </li>
-                        <li class="mb-2">
-                            <span class="font-bold">Dirección: </span>Ciudad
-                            Autonoma de Buenos Aires
-                        </li>
-                    </ul>
                 </div>
 
                 <span
                     class="w-full h-px bg-[#5D5D5D] inline-block col-span-full"
                 ></span>
 
-                <div class="flex justify-between w-full col-span-full">
-                    <p class="font-semibold text-[#5D5D5D]">
-                        <span class="text-primary-blue font-extrabold"
+                <div
+                    class="flex justify-between w-full col-span-full md:flex-row flex-col items-center gap-4"
+                >
+                    <p class="font-semibold text-[#5D5D5D] text-lg text-center">
+                        <span class="text-primary-blue font-black"
                             >© 2025 Beram Construcciones</span
                         > - Todos los derechos reservados.
                     </p>
-                    <p class="font-bold text-lg text-[#5D5D5D]">
-                        Desarrollador por <span class="text-blue-900">@binadevs</span> 
+                    <p class="font-semibold text-xl text-[#5D5D5D]">
+                        Desarrollador por <span
+                            class="text-primary-blue font-black">@binadevs</span
+                        >
                     </p>
                 </div>
             </footer>

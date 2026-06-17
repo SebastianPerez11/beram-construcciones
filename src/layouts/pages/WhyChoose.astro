@@ -5,6 +5,7 @@ import PillSection from "../../components/PillSection.astro";
 import IconEnterprise from "../../../public/assets/icon/IconEnterprise.astro";
 import Animado from "./Animado.astro";
 import PillWhyChoose from "../../components/PillWhyChoose.astro";
+import TitleSection from "../../components/TitleSection.astro";
 ---
 
 <section
@@ -28,12 +29,8 @@ import PillWhyChoose from "../../components/PillWhyChoose.astro";
 
     <div class="w-full flex flex-col">
       <Animado tipo="subir" delay={100}>
-        <h2
-          class="xl:w-full xl:text-7xl xl:leading-20 md:text-6xl md:w-[18ch] leading-12 text-[42px] font-bold lg:mb-8 mb-6"
-        >
-          Que nos diferencia de los demás
-        </h2>
-        <p class="font-extrabold md:text-xl text-lg mb-2 text-[#5D5D5D]">
+        <TitleSection class="mb-6 xl:w-167.5 md:w-[18ch]" text="Que nos diferencia de los demás"/>
+        <p class="font-extrabold md:text-xl text-lg mb-4 text-[#5D5D5D]">
           Nos especializamos en brindar soluciones constructivas integrales,
           combinando profesionalismo, eficiencia y compromiso.
         </p>
@@ -44,7 +41,7 @@ import PillWhyChoose from "../../components/PillWhyChoose.astro";
       </Animado>
 
       <ul
-        class="w-full flex flex-col items-center justify-between grow xl:gap-2 gap-8"
+        class="w-full flex flex-col items-center justify-between grow xl:gap-0 gap-8"
       >
         <Animado tipo="subir" class="w-full" delay={300}>
           <PillWhyChoose
